@@ -22,10 +22,11 @@
 
 .detail__title {
     font-size: 2rem;
-    font-weight: 900;
+    font-weight: 600;
     line-height: 2.5rem;
     word-wrap: break-word;
     margin-top: 7px;
+    word-spacing: 2px;
 }
 
 .detail__evaluate {
@@ -34,10 +35,15 @@
     padding: 7px 0;
 }
 
+.detail__evaluate-raiting {
+    font-size: 1.4rem;
+}
+
 .detail__evaluate-item-raiting,
 .detail__evaluate-item {
     display: flex;
-    padding: 3px 8px;
+    align-items: flex-end;
+    padding: 3px 12px;
     border-right: 1px solid var(--border-color);
 }
 
@@ -57,7 +63,7 @@
 }
 
 .detail__evaluate-item-name {
-    font-size: 13px;
+    font-size: 1.6rem;
     color: #767676;
     font-weight: 500;
 }
@@ -74,30 +80,30 @@
     font-size: 1.6rem;
     display: flex;
     align-items: center;
-    font-weight: 700;
+    font-weight: 500;
 }
 
 .detail__price-sale {
     font-size: 16px;
     color: #767676;
+    font-weight: 700;
     text-decoration: line-through;
 }
 
 .detail__price-sale span:first-child {
     text-decoration: underline;
     position: relative;
-    right: -4px;
 }
 
 .detail__price-price {
     color: var(--primary-color);
     font-size: 30px;
-    font-weight: 900;
+    font-weight: 600;
+    margin-left: 6px;
 }
 
 .detail__price-price span:first-child {
     position: relative;
-    right: -6px;
     text-decoration: underline;
 }
 
@@ -109,6 +115,7 @@
     font-weight: 1000;
     margin-left: 12px;
     border-radius: 2px;
+    font-weight: 700;
 }
 
 .detail__price-ship-info {
@@ -124,12 +131,17 @@
 
 .detail__ship-info-banner {
     font-size: 13px;
-    font-weight: 700;
+    font-weight: 500;
 }
 
 .detail__ship-info-banner span {
     color: var(--primary-color);
     margin-right: 8px;
+    font-size: 1.6rem;
+}
+
+.detail__ship-info-banner i {
+    font-size: 1.6rem;
 }
 
 .detail__ship-info-banner i {
@@ -138,7 +150,7 @@
 
 .detail__ship-info-banner p {
     color: rgba(0, 0, 0, .54);
-    margin: 3px 0 0;
+    margin: 5px 0 0;
 }
 
 .detail__jobs {
@@ -152,13 +164,14 @@
     color: #222;
     position: relative;
     font-weight: 600;
-    top: -2px;
 }
 
 .detail__price-ship-state img {
     width: 25px;
     height: 15px;
     position: relative;
+    top: 2px;
+    margin-right: 7px;
 }
 
 .detail__price-count {
@@ -178,8 +191,8 @@
 
 .detail__input-increment,
 .detail__input-decrement {
-    width: 30px;
-    height: 30px;
+    width: 32px;
+    height: 32px;
     background-color: #fff;
     border: 1px solid var(--border-color);
     color: rgba(0, 0, 0, 0.8);
@@ -200,7 +213,7 @@
     border-top: 1px solid var(--border-color);
     border-bottom: 1px solid var(--border-color);
     outline: none;
-    width: 60px;
+    width: 64px;
     justify-content: center;
     text-align: center;
 }

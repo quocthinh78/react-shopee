@@ -301,6 +301,11 @@ header {
     color: black;
     line-height: 1.8rem;
     margin-bottom: 2px;
+    max-height: 1.7rem;
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
     ;
 }
 
@@ -308,6 +313,11 @@ header {
     display: block;
     font-size: 1.2rem;
     color: #756F6E;
+    max-height: 1.7rem;
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
 }
 
 .header__notify-footer {
@@ -597,7 +607,7 @@ header {
 .header__search-option-item i {
     font-size: 1.2rem;
     color: var(--text-color);
-    margin: 0 6px 0 12px;
+    margin: 0 6px 0 10px;
     display: none;
     color: var(--primary-color);
 }
@@ -816,7 +826,7 @@ header {
 
 .header__cart-price-wrap {
     display: flex;
-    align-items: flex-start;
+    align-items: flex-end;
 }
 
 .header__cart-item-price {
@@ -831,7 +841,7 @@ header {
 
 .header__cart-item-qnt {
     color: #757575;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
 }
 
 .header__cart-item-body {
