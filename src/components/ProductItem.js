@@ -1,20 +1,21 @@
 import React from "react";
 import PropTypes from "prop-types";
-
+import { changCurrency } from "./../common/currency"
 function ProductItem(props) {
+    const { product } = props;
     return (
         <div className="grid__column-2-4">
             <a className="home-poduct-item">
                 <div
                     className="home-product-item__img"
-                    style={{ backgroundImage: "url(./assets/img/sp1.jpeg)" }}
+                    style={{ backgroundImage: `url(${product.image})` }}
                 />
                 <h4 className="home-product-item__name">
-                    Chân váy hoa nhí kèm hoa nhí kèm hoa nhí kèm hình thật bảng màu ở cuối
+                    {product.name}
                 </h4>
                 <div className="home-product-item__price">
-                    <span className="home-product-item__price-old">1.000.000d</span>
-                    <span className="home-product-item__price-current">1.200.000d</span>
+                    <span className="home-product-item__price-old">{product.price * (100 - product.discount) / 100}</span>
+                    <span className="home-product-item__price-current">{changCurrency(product.price, "đ")}</span>
                 </div>
                 <div className="home-product-item__action">
                     <span className="home-product-item__like home-product-item__like--liked">
@@ -28,17 +29,17 @@ function ProductItem(props) {
                         <i className="home-product-item__start--gold fas fa-star" />
                         <i className="fas fa-star" />
                     </div>
-                    <span className="home-product-item__sold">88 da ban</span>
+                    <span className="home-product-item__sold">{product.saled} đã bán</span>
                 </div>
                 <div className="home-product-item__origin">
                     <div className="home-product-item__brand">Whoo</div>
-                    <span className="home-product-item__origin-name">Nhật Bản</span>
+                    <span className="home-product-item__origin-name">{product.national}</span>
                 </div>
                 <div className="home-product-item__favourite">
                     <i className="fas fa-check" /> <span>Yêu thích</span>
                 </div>
                 <div className="home-product-item__sale-off">
-                    <span className="home-product-item__sale-off-percent">43%</span>
+                    <span className="home-product-item__sale-off-percent">{product.discount}%</span>
                     <span className="home-product-item__sale-off-label">GIẢM</span>
                 </div>
             </a>

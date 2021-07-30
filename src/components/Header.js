@@ -18,14 +18,14 @@ function Header(props) {
                                     className="header__qr-img"
                                 />
                                 <div className="header__qr-apps">
-                                    <a href className="header__qr-link">
+                                    <a className="header__qr-link">
                                         <img
                                             src="/assets/img/google_paly.png"
                                             alt="Google Play"
                                             className="header__qr-download-img"
                                         />
                                     </a>
-                                    <a href className="header__qr-link">
+                                    <a className="header__qr-link">
                                         <img
                                             src="/assets/img/app_store.png"
                                             alt="App Store"
@@ -37,10 +37,10 @@ function Header(props) {
                         </li>
                         <li className="header__navbar-item">
                             <span className="header__navbar-item--pointer"> Kết nối</span>
-                            <a href className="header__navbar-icon-link">
+                            <a className="header__navbar-icon-link">
                                 <i className="header__navbar-icon fab fa-facebook" />
                             </a>
-                            <a href className="header__navbar-icon-link">
+                            <a className="header__navbar-icon-link">
                                 <i className="header__navbar-icon fab fa-instagram" />
                             </a>
                         </li>
@@ -65,16 +65,16 @@ function Header(props) {
                             <span className="header__navbar-user-name">Quốc Thịnh</span>
                             <ul className="header__navbar-user-menu">
                                 <li className="header__navbar-user-item">
-                                    <a href>Tài khoản của tôi</a>
+                                    <a>Tài khoản của tôi</a>
                                 </li>
                                 <li className="header__navbar-user-item">
-                                    <a href>Địa chỉ của tôi</a>
+                                    <a>Địa chỉ của tôi</a>
                                 </li>
                                 <li className="header__navbar-user-item">
-                                    <a href>Đơn mua</a>
+                                    <a>Đơn mua</a>
                                 </li>
                                 <li className="header__navbar-user-item header__navbar-user-item-separate">
-                                    <a href>Đăng xuất</a>
+                                    <a>Đăng xuất</a>
                                 </li>
                             </ul>
                         </li>

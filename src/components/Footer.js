@@ -10,70 +10,52 @@ function Footer(props) {
                         <h3 className="footer__heading">Chăm sóc khách hàng</h3>
                         <ul className="footer-list">
                             <li className="footer-item">
-                                <a href className="footer-item__link">
-                                    Trung Tâm Trợ Giúp
-                                </a>
+                                <a className="footer-item__link">Trung Tâm Trợ Giúp</a>
                             </li>
                             <li className="footer-item" />
-                            <a href className="footer-item__link">
-                                TickID Mail
-                            </a>
+                            <a className="footer-item__link">TickID Mail</a>
                             <li className="footer-item" />
-                            <a href className="footer-item__link">
-                                Hưỡng Dẫn Mua Hàng
-                            </a>
+                            <a className="footer-item__link">Hưỡng Dẫn Mua Hàng</a>
                         </ul>
                     </div>
                     <div className="grid__column-2-4">
                         <h3 className="footer__heading">Giới thiệu</h3>
                         <ul className="footer-list">
                             <li className="footer-item">
-                                <a href className="footer-item__link">
-                                    Tuyển Dụng
-                                </a>
+                                <a className="footer-item__link">Tuyển Dụng</a>
                             </li>
                             <li className="footer-item" />
-                            <a href className="footer-item__link">
-                                Mua Hàng
-                            </a>
+                            <a className="footer-item__link">Mua Hàng</a>
                             <li className="footer-item" />
-                            <a href className="footer-item__link">
-                                Điều Khoản
-                            </a>
+                            <a className="footer-item__link">Điều Khoản</a>
                         </ul>
                     </div>
                     <div className="grid__column-2-4">
                         <h3 className="footer__heading">Danh mục</h3>
                         <ul className="footer-list">
                             <li className="footer-item">
-                                <a href className="footer-item__link">
-                                    Trang Điểm Mặt
-                                </a>
+                                <a className="footer-item__link">Trang Điểm Mặt</a>
                             </li>
                             <li className="footer-item" />
-                            <a href className="footer-item__link">
-                                Trang Điểm Môi
-                            </a>
+                            <a className="footer-item__link">Trang Điểm Môi</a>
                             <li className="footer-item" />
-                            <a href className="footer-item__link">
-                                Đồ Gia Dụng
-                            </a>
+                            <a className="footer-item__link">Đồ Gia Dụng</a>
                         </ul>
                     </div>
                     <div className="grid__column-2-4">
                         <h3 className="footer__heading">Theo dõi chúng tôi trên</h3>
                         <ul className="footer-list">
                             <li className="footer-item">
-                                <a href className="footer-item__link">
+                                <a className="footer-item__link">
                                     <i className="footer-item__icon fab fa-facebook" /> Facebook
                                 </a>
                             </li>
                             <li className="footer-item" />
-                            <a href className="footer-item__link">
+                            <a className="footer-item__link">
                                 <i className="footer-item__icon fab fa-instagram" /> Instagram
                             </a>
                             <li className="footer-item" />
-                            <a href className="footer-item__link">
+                            <a className="footer-item__link">
                                 <i className="footer-item__icon  fab fa-linkedin" />
                                 LikedIn
                             </a>
@@ -88,14 +70,14 @@ function Footer(props) {
                                 className="footer__download-qr"
                             />
                             <div className="footer__download-apps">
-                                <a href className="footer__download-app-link">
+                                <a className="footer__download-app-link">
                                     <img
                                         src="/assets/img/google_paly.png"
                                         alt="Google play"
                                         className="footer_downlaod-app-img"
                                     />
                                 </a>
-                                <a href className="footer__download-app-link">
+                                <a className="footer__download-app-link">
                                     <img
                                         src="/assets/img/app_store.png"
                                         alt="App store"

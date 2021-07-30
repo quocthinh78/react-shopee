@@ -1,10 +1,10 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React from "react";
+import PropTypes from "prop-types";
 
 function HeaderNotify(props) {
     return (
         <li className="header__navbar-item header__navbar-item--has-qr">
-            <a className="header__navbar-item-link" href>
+            <a className="header__navbar-item-link" >
                 <i className="header__navbar-icon far fa-bell" /> Thông báo
             </a>
             <div className="header__notify">
@@ -31,18 +31,15 @@ function HeaderNotify(props) {
                     </li>
                 </ul>
                 <footer className="header__notify-footer">
-                    <a href className="header__notify--footer-btn">
+                    <a className="header__notify--footer-btn">
                         <span>Xem tất cả</span>
                     </a>
                 </footer>
             </div>
         </li>
-    )
+    );
 }
 
-HeaderNotify.propTypes = {
+HeaderNotify.propTypes = {};
 
-}
-
-export default HeaderNotify
-
+export default HeaderNotify;

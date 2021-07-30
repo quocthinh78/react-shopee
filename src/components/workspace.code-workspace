@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "../../../../backend/json-server"
+		},
+		{
+			"path": "../../../redux-saga"
+		},
+		{
+			"path": "../.."
+		}
+	],
+	"settings": {}
+}

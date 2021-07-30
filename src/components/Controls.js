@@ -1,5 +1,5 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React from "react";
+import PropTypes from "prop-types";
 
 function Controls(props) {
     return (
@@ -13,14 +13,10 @@ function Controls(props) {
                 <i className="select-input__icon fas fa-angle-down" />
                 <ul className="select-input__list">
                     <li className="select-input__item">
-                        <a href className="select-input__link">
-                            Giá: Cao đến thấp
-                        </a>
+                        <a className="select-input__link">Giá: Cao đến thấp</a>
                     </li>
                     <li className="select-input__item">
-                        <a href className="select-input__link">
-                            Giá: Cao đến thấp
-                        </a>
+                        <a className="select-input__link">Giá: Cao đến thấp</a>
                     </li>
                 </ul>
             </div>
@@ -29,24 +25,18 @@ function Controls(props) {
                     <span className="home-filter__page-current">1</span>/ 14
                 </span>
                 <div className="home-filter__page-control">
-                    <a
-                        href
-                        className="home-filter__page-btn home-filter__page-btn--disable"
-                    >
+                    <a className="home-filter__page-btn home-filter__page-btn--disable">
                         <i className="home__filter-icon fas fa-angle-left" />
                     </a>
-                    <a href className="home-filter__page-btn">
+                    <a className="home-filter__page-btn">
                         <i className="home__filter-icon fas fa-angle-right" />
                     </a>
                 </div>
             </div>
         </div>
-    )
+    );
 }
 
-Controls.propTypes = {
+Controls.propTypes = {};
 
-}
-
-export default Controls
-
+export default Controls;
