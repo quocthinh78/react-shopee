@@ -1,14 +1,17 @@
 import * as typesCart from "./../constant/cart";
 // add cart
-export const addProductInCart = (params) => {
+export const addProductInCart = (product) => {
     return {
         type: typesCart.ADD_CART,
-        params: params,
+        payload: {
+            product: product,
+        },
     };
 };
-export const addProductInCartSuccess = () => {
+export const addProductInCartSuccess = (product) => {
     return {
         type: typesCart.ADD_CART_SUCCESS,
+        product,
     };
 };
 

@@ -10,7 +10,7 @@ const cartReducer = (state = initialState, action) => {
             toastSuccess("Thêm thành công");
             return {
                 ...state,
-                cart: [...action.product, [...state.cart]],
+                cart: [action.product].concat(state.cart),
             };
         default:
             return state;

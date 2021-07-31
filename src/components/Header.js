@@ -83,7 +83,6 @@ function Header(props) {
                         </li>
                     </ul>
                 </nav>
-                {/* header with search */}
                 <div className="header-with--search">
                     <div className="header__logo">
                         <svg viewBox="0 0 192 65" className="header__logo-img">
@@ -96,7 +95,7 @@ function Header(props) {
                         </svg>
                     </div>
                     <HeaderSearch />
-                    <HeaderCart />
+                    <HeaderCart productsIncart={productsIncart} />
                 </div>
             </div>
         </header>

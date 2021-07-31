@@ -1035,6 +1035,10 @@ header {
 
 /* product item */
 
+a.home-poduct-item {
+    text-decoration: none;
+}
+
 .home-poduct-item {
     margin-top: 10px;
     display: block;
@@ -1045,6 +1049,7 @@ header {
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
     transition: transform linear 0.2s;
     will-change: transform;
+    color: var(--text-color)
 }
 
 .home-poduct-item:hover {

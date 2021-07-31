@@ -1,7 +1,9 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React from "react";
+import PropTypes from "prop-types";
 
 function HeaderCart(props) {
+    const { productsIncart } = props;
+    console.log(productsIncart);
     return (
         <div className="header__cart">
             <div className="header__cart-wrap">
@@ -35,9 +37,7 @@ function HeaderCart(props) {
                                             <span className="header__cart-item-price">
                                                 2.000.000đ
                                             </span>
-                                            <span className="header__cart-item-multiply">
-                                                X
-                                            </span>
+                                            <span className="header__cart-item-multiply">X</span>
                                             <span className="header__cart-item-qnt">1</span>
                                         </div>
                                     </div>
@@ -64,9 +64,7 @@ function HeaderCart(props) {
                                             <span className="header__cart-item-price">
                                                 2.000.000đ
                                             </span>
-                                            <span className="header__cart-item-multiply">
-                                                X
-                                            </span>
+                                            <span className="header__cart-item-multiply">X</span>
                                             <span className="header__cart-item-qnt">1</span>
                                         </div>
                                     </div>
@@ -93,9 +91,7 @@ function HeaderCart(props) {
                                             <span className="header__cart-item-price">
                                                 2.000.000đ
                                             </span>
-                                            <span className="header__cart-item-multiply">
-                                                X
-                                            </span>
+                                            <span className="header__cart-item-multiply">X</span>
                                             <span className="header__cart-item-qnt">1</span>
                                         </div>
                                     </div>
@@ -122,9 +118,7 @@ function HeaderCart(props) {
                                             <span className="header__cart-item-price">
                                                 2.000.000đ
                                             </span>
-                                            <span className="header__cart-item-multiply">
-                                                X
-                                            </span>
+                                            <span className="header__cart-item-multiply">X</span>
                                             <span className="header__cart-item-qnt">1</span>
                                         </div>
                                     </div>
@@ -145,18 +139,16 @@ function HeaderCart(props) {
                                 <div className="header__cart-item-info">
                                     <div className="header__cart-item-head">
                                         <h5 className="header__cart-item-name">
-                                            Bộ kem đặ dgdfg dfc vị vùng mắtBộ kem đặ dgdfg dfc
-                                            vị vùng mắtBộ kem đặ dgdfg dfc vị vùng mắtBộ kem đặ
-                                            dgdfg dfc vị vùng mắtBộ kem đặ dgdfg dfc vị vùng
-                                            mắtBộ kem đặ dgdfg dfc vị vùng mắt
+                                            Bộ kem đặ dgdfg dfc vị vùng mắtBộ kem đặ dgdfg dfc vị vùng
+                                            mắtBộ kem đặ dgdfg dfc vị vùng mắtBộ kem đặ dgdfg dfc vị
+                                            vùng mắtBộ kem đặ dgdfg dfc vị vùng mắtBộ kem đặ dgdfg dfc
+                                            vị vùng mắt
                                         </h5>
                                         <div className="header__cart-price-wrap">
                                             <span className="header__cart-item-price">
                                                 2.000.000đ
                                             </span>
-                                            <span className="header__cart-item-multiply">
-                                                X
-                                            </span>
+                                            <span className="header__cart-item-multiply">X</span>
                                             <span className="header__cart-item-qnt">1</span>
                                         </div>
                                     </div>
@@ -176,12 +168,9 @@ function HeaderCart(props) {
                 </div>
             </div>
         </div>
-    )
+    );
 }
 
-HeaderCart.propTypes = {
+HeaderCart.propTypes = {};
 
-}
-
-export default HeaderCart
-
+export default HeaderCart;

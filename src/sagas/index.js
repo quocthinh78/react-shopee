@@ -16,9 +16,8 @@ function* getProductAll({ payload }) {
 }
 
 function* AddToCart({ payload }) {
-    const { params } = payload;
-    console.log(params);
-    yield put(actionsCart.addProductInCartSuccess(params));
+    const { product } = payload;
+    yield put(actionsCart.addProductInCartSuccess(product));
 }
 
 function* getDetailProduct({ payload }) {

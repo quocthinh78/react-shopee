@@ -11,8 +11,8 @@ import Raiting from "../components/Raiting"
 
 function Detail(props) {
     const dispatch = useDispatch();
-    const handleAddProductInCart = () => {
-        dispatch(cartActions.addProductInCart());
+    const handleAddProductInCart = (product) => {
+        dispatch(cartActions.addProductInCart(product));
     }
     let location = useLocation();
     const idProduct = location.pathname.split('/').reverse()[0];
@@ -24,7 +24,7 @@ function Detail(props) {
         <div className="app">
             <Header />
             <div className="app__container">
-                <div className="grid">
+                <div className="grid detail-wrap">
                     <Breadcrumb />
                     <div className="grid__row detail">
                         <div className="grid__column-5 detail__padding">
@@ -190,7 +190,7 @@ function Detail(props) {
                                 </div>
                             </div>
                             <div className="button__buy-group mt-20">
-                                <button className="btn button__buy--addcart btn__size--lg" onClick={handleAddProductInCart}>
+                                <button className="btn button__buy--addcart btn__size--lg" onClick={() => handleAddProductInCart(productDeatail)}>
                                     <i className="header__cart-icon fas fa-cart-plus" />
                                     Thêm vào giỏ hàng
                                 </button>
