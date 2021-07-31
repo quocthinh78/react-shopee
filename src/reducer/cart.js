@@ -24,10 +24,10 @@ const cartReducer = (state = initialState, action) => {
                     cart: [{...action.product, quatity: 1 }].concat(state.cart),
                 };
             }
-            let count = state.cart[index].quatity++;
+            let count = { quatity: state.cart[index].quatity++ };
             return {
                 ...state,
-                cart: [{...action.product, quatity: count }],
+                cart: [{...action.product, quatity: count.quatity }],
             };
         default:
             return {...state };
