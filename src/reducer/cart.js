@@ -17,14 +17,13 @@ const cartReducer = (state = initialState, action) => {
         case typesCart.ADD_CART_SUCCESS:
             toastSuccess("Thêm thành công");
             const index = findIndex(state.cart, action.product);
-            console.log(index);
             if (index === -1) {
                 return {
                     ...state,
                     cart: [{...action.product, quatity: 1 }].concat(state.cart),
                 };
             }
-            let count = { quatity: state.cart[index].quatity++ };
+            let count = { quatity: (state.cart[index].quatity += 1) };
             return {
                 ...state,
                 cart: [{...action.product, quatity: count.quatity }],

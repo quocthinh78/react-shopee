@@ -10,6 +10,6 @@ export const toastError = (error) => {
 };
 export const toastSuccess = (message) => {
     if (message) {
-        toast.success(message);
+        toast.success(message, { position: "bottom-right" });
     }
 };

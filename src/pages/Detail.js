@@ -1,23 +1,23 @@
 import React, { useEffect } from "react";
-import { useLocation } from "react-router-dom"
+import { useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import * as cartActions from "./../actions/cart";
 import * as productActions from "./../actions/product";
-import PropTypes from "prop-types";
 import Footer from "./../components/Footer";
 import Header from "../components/Header";
 import Breadcrumb from "../components/Breadcrumb";
-import Raiting from "../components/Raiting"
+import Raiting from "../components/Raiting";
 
 function Detail(props) {
     const dispatch = useDispatch();
     const handleAddProductInCart = (product) => {
         dispatch(cartActions.addProductInCart(product));
-    }
+    };
     let location = useLocation();
-    const idProduct = location.pathname.split('/').reverse()[0];
+    const idProduct = location.pathname.split("/").reverse()[0];
     useEffect(() => {
         dispatch(productActions.fetchDetailProduct(idProduct));
+        dispatch(productActions.fetchBreadcrumb());
     }, [location]);
     const productDeatail = useSelector((state) => state.product.productDetail);
     return (
@@ -31,43 +31,51 @@ function Detail(props) {
                             <div
                                 className="detail__img"
                                 style={{ backgroundImage: `url(${productDeatail.image})` }}
-                            />
-                        </div>
+                            />{" "}
+                        </div>{" "}
                         <div className="grid__column-7 detail__content detail__padding">
-                            <div className="detail__title">
-                                {productDeatail.name}
-                            </div>
+                            <div className="detail__title"> {productDeatail.name} </div>{" "}
                             <ul className="detail__evaluate">
                                 <li className="detail__evaluate-item-raiting raiting">
                                     <span className="detail__evaluate-item-number active">
-                                        {productDeatail.star}
-                                    </span>
+                                        {" "}
+                                        {productDeatail.star}{" "}
+                                    </span>{" "}
                                     <div className="detail__evaluate-raiting">
-                                        <Raiting star={productDeatail.star} />
-                                    </div>
-                                </li>
+                                        <Raiting star={productDeatail.star} />{" "}
+                                    </div>{" "}
+                                </li>{" "}
                                 <li className="detail__evaluate-item">
-                                    <span className="detail__evaluate-item-number">{productDeatail.evalue}k</span>
-                                    <span className="detail__evaluate-item-name">Đánh giá</span>
-                                </li>
+                                    <span className="detail__evaluate-item-number">
+                                        {" "}
+                                        {productDeatail.evalue}k{" "}
+                                    </span>{" "}
+                                    <span className="detail__evaluate-item-name"> Đánh giá </span>{" "}
+                                </li>{" "}
                                 <li className="detail__evaluate-item">
-                                    <span className="detail__evaluate-item-number">{productDeatail.discount / 5}k</span>
-                                    <span className="detail__evaluate-item-name">Đã bán</span>
-                                </li>
-                            </ul>
+                                    <span className="detail__evaluate-item-number">
+                                        {" "}
+                                        {productDeatail.discount / 5}k{" "}
+                                    </span>{" "}
+                                    <span className="detail__evaluate-item-name"> Đã bán </span>{" "}
+                                </li>{" "}
+                            </ul>{" "}
                             <div className="detail__price-info">
                                 <div className="detail__padding">
                                     <div className="detail__price">
                                         <div className="detail__price-sale">
-                                            <span>đ</span>
-                                            <span>{productDeatail.price}</span>
-                                        </div>
+                                            <span> đ </span> <span> {productDeatail.price} </span>{" "}
+                                        </div>{" "}
                                         <div className="detail__price-price">
-                                            <span>đ</span>
-                                            <span>{productDeatail.price * productDeatail.discount / 100}</span>
-                                        </div>
-                                        <div className="detail__price-percent">19% giảm</div>
-                                    </div>
+                                            <span> đ </span>{" "}
+                                            <span>
+                                                {" "}
+                                                {(productDeatail.price * productDeatail.discount) /
+                                                    100}{" "}
+                                            </span>{" "}
+                                        </div>{" "}
+                                        <div className="detail__price-percent"> 19 % giảm </div>{" "}
+                                    </div>{" "}
                                     <div className="detail__price-ship-info">
                                         <svg
                                             xmlns="http://www.w3.org/2000/svg"
@@ -133,31 +141,34 @@ function Detail(props) {
                                                 d="M27.8641 7.76164C27.6388 7.76164 27.4814 7.71307 27.393 7.61626C27.3046 7.51913 27.2444 7.34396 27.46 7.0587L27.7184 7.25395C27.6537 7.33975 27.6407 7.38637 27.6381 7.40256C27.6915 7.43753 27.9907 7.49743 28.7711 7.27175C29.4371 7.0791 30.1436 6.76341 30.661 6.42732C31.0541 6.17218 31.6868 5.67582 31.509 5.21928C31.4611 5.09624 31.3759 5.01432 31.2487 4.96867C30.6795 4.76501 29.4811 5.32419 29.0673 5.55699L28.9083 5.27497C28.9245 5.26591 29.3121 5.04865 29.801 4.86247C30.4794 4.60409 31.0029 4.53739 31.3575 4.66399C31.5751 4.7417 31.7276 4.88934 31.8104 5.10207C31.9526 5.4673 31.883 6.05108 30.7436 6.75823C30.1951 7.09853 29.4688 7.41325 28.8005 7.59975C28.4146 7.70789 28.1018 7.76164 27.8641 7.76164Z"
                                                 fill="#EE4D2D"
                                             />
-                                        </svg>
+                                        </svg>{" "}
                                         <div className="detail__ship-info-banner">
-                                            <span>Gì cũng rẻ</span>
+                                            <span> Gì cũng rẻ </span>{" "}
                                             <i className="header__navbar-icon far fa-question-circle" />
                                             <p>
                                                 Giá tốt nhất so với các sản phẩm cùng loại trên Shopee!
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                                            </p>{" "}
+                                        </div>{" "}
+                                    </div>{" "}
+                                </div>{" "}
+                            </div>{" "}
                             <div className="grid__row mt-25">
-                                <div className="grid__column-2 detail__jobs">Vận chuyển</div>
+                                <div className="grid__column-2 detail__jobs"> Vận chuyển </div>{" "}
                                 <div className="grid__column-10">
                                     <div className="detail__price-ship-state">
                                         <img
                                             src="https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/assets/1cdd37339544d858f4d0ade5723cd477.png"
                                             alt=""
                                         />
-                                        <span>Miễn phí vận chuyển</span>
-                                    </div>
-                                </div>
-                            </div>
+                                        <span> Miễn phí vận chuyển </span>{" "}
+                                    </div>{" "}
+                                </div>{" "}
+                            </div>{" "}
                             <div className="grid__row mt-35">
-                                <div className="grid__column-2 detail__jobs mt-7">Số lượng</div>
+                                <div className="grid__column-2 detail__jobs mt-7">
+                                    {" "}
+                                    Số lượng{" "}
+                                </div>{" "}
                                 <div className="grid__column-10">
                                     <div className="detail__price-count">
                                         <div className="detail__price-count-group">
@@ -169,39 +180,51 @@ function Detail(props) {
                                                     y={0}
                                                     className="shopee-svg-icon "
                                                 >
-                                                    <polygon points="4.5 4.5 3.5 4.5 0 4.5 0 5.5 3.5 5.5 4.5 5.5 10 5.5 10 4.5"></polygon>
-                                                </svg>
-                                            </button>
+                                                    <polygon points="4.5 4.5 3.5 4.5 0 4.5 0 5.5 3.5 5.5 4.5 5.5 10 5.5 10 4.5">
+                                                        {" "}
+                                                    </polygon>{" "}
+                                                </svg>{" "}
+                                            </button>{" "}
                                             <input
                                                 className="detail__input-value"
                                                 type="text"
-                                                defaultValue={1}
-                                            />
+                                                defaultValue={
+                                                    productDeatail.quatity ? productDeatail.quatity : 1
+                                                }
+                                            />{" "}
                                             <input
                                                 className="detail__input-decrement"
                                                 type="button"
                                                 defaultValue="+"
                                             />
-                                        </div>
+                                        </div>{" "}
                                         <div className="detail__price-particular">
-                                            {productDeatail.saled} sản phẩm đã bán
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                                            {" "}
+                                            {productDeatail.saled}
+                                            sản phẩm đã bán{" "}
+                                        </div>{" "}
+                                    </div>{" "}
+                                </div>{" "}
+                            </div>{" "}
                             <div className="button__buy-group mt-20">
-                                <button className="btn button__buy--addcart btn__size--lg" onClick={() => handleAddProductInCart(productDeatail)}>
+                                <button
+                                    className="btn button__buy--addcart btn__size--lg"
+                                    onClick={() => handleAddProductInCart(productDeatail)}
+                                >
                                     <i className="header__cart-icon fas fa-cart-plus" />
-                                    Thêm vào giỏ hàng
-                                </button>
-                                <button className="btn button__buy--now btn__size--lg" style={{ position: "relative", top: "-3px" }}>
-                                    Xem giỏ hàng
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                                    Thêm vào giỏ hàng{" "}
+                                </button>{" "}
+                                <button
+                                    className="btn button__buy--now btn__size--lg"
+                                    style={{ position: "relative", top: "-3px" }}
+                                >
+                                    Xem giỏ hàng{" "}
+                                </button>{" "}
+                            </div>{" "}
+                        </div>{" "}
+                    </div>{" "}
+                </div>{" "}
+            </div>{" "}
             <Footer />
         </div>
     );

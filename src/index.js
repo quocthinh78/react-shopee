@@ -1,19 +1,20 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import { ToastContainer } from 'react-toastify';
-import reportWebVitals from './reportWebVitals';
-import { Provider } from "react-redux"
-import store from "./store/configStore"
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import App from "./App";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from "react-toastify";
+import reportWebVitals from "./reportWebVitals";
+import { Provider } from "react-redux";
+import store from "./store/configStore";
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
       <App />
       <ToastContainer />
-    </Provider>
+    </Provider>{" "}
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
 
 // If you want to start measuring performance in your app, pass a function

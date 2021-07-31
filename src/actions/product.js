@@ -1,5 +1,6 @@
 import * as typesProduct from "./../constant/product";
 
+// all product
 export const fetchProduct = (params = {}) => {
     return {
         type: typesProduct.GET_PRODUCT,
@@ -16,6 +17,8 @@ export const fetchProductSuccess = (data) => {
         },
     };
 };
+
+// detail product
 export const fetchDetailProduct = (params = {}) => {
     return {
         type: typesProduct.GET_DETAIL_PRODUCT,
@@ -30,6 +33,22 @@ export const fetchDetailProductSuccess = (detail) => {
         type: typesProduct.GET_DETAIL_PRODUCT_SUCCESS,
         payload: {
             detail,
+        },
+    };
+};
+
+// fetchBreadcrumb
+export const fetchBreadcrumb = () => {
+    return {
+        type: typesProduct.GET_BREADCRUM,
+    };
+};
+
+export const fetchBreadcrumbSuccess = (data) => {
+    return {
+        type: typesProduct.GET_BREADCRUM_SUCCESS,
+        payload: {
+            data,
         },
     };
 };

@@ -1,7 +1,9 @@
-import React from "react";
-import PropTypes from "prop-types";
-
+import React, { useEffect } from "react";
 function Breadcrumb(props) {
+
+    useEffect(() => {
+
+    })
     return (
         <div className="grid__row">
             <div className="grid__column-12">
@@ -35,7 +37,5 @@ function Breadcrumb(props) {
         </div>
     );
 }
-
-Breadcrumb.propTypes = {};
 
 export default Breadcrumb;

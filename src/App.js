@@ -11,7 +11,6 @@ import "./scss/base.scss";
 import "./scss/main.scss";
 import "./scss/detail.scss";
 import "./scss/reset.scss";
-
 function App() {
   return (
     <Router>
