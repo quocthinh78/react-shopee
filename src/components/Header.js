@@ -6,7 +6,6 @@ import HeaderCart from "./HeaderCart";
 import HeaderNotify from "./HeaderNotify";
 function Header(props) {
     const productsIncart = useSelector((state) => state.cart.cart);
-    console.log(productsIncart)
     return (
         <header className="header">
             <div className="grid">

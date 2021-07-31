@@ -25,7 +25,7 @@ function HeaderCart(props) {
                             {
                                 productsIncart.map(product => {
                                     return (
-                                        <li className="header__cart-item">
+                                        <li key={product._id} className="header__cart-item">
                                             <img
                                                 src={`${product.image}`}
                                                 alt=""
@@ -41,7 +41,7 @@ function HeaderCart(props) {
                                                             {product.price * product.discount / 100}đ
                                                         </span>
                                                         <span className="header__cart-item-multiply">X</span>
-                                                        <span className="header__cart-item-qnt">1</span>
+                                                        <span className="header__cart-item-qnt">{product.quatity}</span>
                                                     </div>
                                                 </div>
                                                 <div className="header__cart-item-body">

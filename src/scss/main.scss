@@ -778,7 +778,7 @@ header {
 .header__cart-list-item {
     padding-left: 0;
     list-style: none;
-    height: 42vh;
+    max-height: 42vh;
     overflow-y: auto;
 }
 
