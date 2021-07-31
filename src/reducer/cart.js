@@ -3,17 +3,29 @@ import * as typesCart from "./../constant/cart";
 const initialState = {
     cart: [],
 };
-
+const findIndex = (cart, product) => {
+    let i = -1;
+    for (let index = 0; index < cart.length; index++) {
+        if (cart[index]._id === product._id) {
+            i = index;
+        }
+    }
+    return i;
+};
 const cartReducer = (state = initialState, action) => {
     switch (action.type) {
         case typesCart.ADD_CART_SUCCESS:
             toastSuccess("Thêm thành công");
-            return {
-                ...state,
-                cart: [action.product].concat(state.cart),
-            };
+            const index = findIndex(state.cart, action.product);
+            if (index === -1) {
+                return {
+                    ...state,
+                    cart: [{...action.product, quatity: 1 }].concat(state.cart),
+                };
+            }
+            return {...state };
         default:
-            return state;
+            return {...state };
     }
 };
 
