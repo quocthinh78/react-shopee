@@ -1,11 +1,11 @@
 import React from "react";
-import PropTypes from "prop-types";
+import { NavLink } from "react-router-dom"
 import { changCurrency } from "./../common/currency"
 function ProductItem(props) {
     const { product } = props;
     return (
         <div className="grid__column-2-4">
-            <a className="home-poduct-item">
+            <NavLink className="home-poduct-item" to={`detail/${product._id}`} >
                 <div
                     className="home-product-item__img"
                     style={{ backgroundImage: `url(${product.image})` }}
@@ -42,8 +42,8 @@ function ProductItem(props) {
                     <span className="home-product-item__sale-off-percent">{product.discount}%</span>
                     <span className="home-product-item__sale-off-label">GIẢM</span>
                 </div>
-            </a>
-        </div>
+            </NavLink>
+        </div >
     );
 }
 

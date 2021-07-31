@@ -10,3 +10,7 @@ export const fetchProduct = (params = {}) => {
     }
     return AxiosService.get(`${API_POINT}/${url}${queryParmas}`);
 };
+
+export const fetchProductDetail = (params = {}) => {
+    return AxiosService.get(`${API_POINT}/${url}/${params}`);
+};

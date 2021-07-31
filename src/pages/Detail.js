@@ -1,10 +1,25 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useLocation } from "react-router-dom"
+import { useDispatch, useSelector } from "react-redux";
+import * as cartActions from "./../actions/cart";
+import * as productActions from "./../actions/product";
 import PropTypes from "prop-types";
 import Footer from "./../components/Footer";
 import Header from "../components/Header";
 import Breadcrumb from "../components/Breadcrumb";
+import Raiting from "../components/Raiting"
 
 function Detail(props) {
+    const dispatch = useDispatch();
+    const handleAddProductInCart = () => {
+        dispatch(cartActions.addProductInCart());
+    }
+    let location = useLocation();
+    const idProduct = location.pathname.split('/').reverse()[0];
+    useEffect(() => {
+        dispatch(productActions.fetchDetailProduct(idProduct));
+    }, [location]);
+    const productDeatail = useSelector((state) => state.product.productDetail);
     return (
         <div className="app">
             <Header />
@@ -15,35 +30,28 @@ function Detail(props) {
                         <div className="grid__column-5 detail__padding">
                             <div
                                 className="detail__img"
-                                style={{ backgroundImage: "url(./assets/img/sp1.jpeg)" }}
+                                style={{ backgroundImage: `url(${productDeatail.image})` }}
                             />
                         </div>
                         <div className="grid__column-7 detail__content detail__padding">
                             <div className="detail__title">
-                                Combo Dầu gội đầu 640g + Dầu xả 620g TRESemmé Keratin Smooth
-                                Tinh dầu Argan và Keratin vào nếp suôn mượt
+                                {productDeatail.name}
                             </div>
                             <ul className="detail__evaluate">
                                 <li className="detail__evaluate-item-raiting raiting">
                                     <span className="detail__evaluate-item-number active">
-                                        4.5
+                                        {productDeatail.star}
                                     </span>
                                     <div className="detail__evaluate-raiting">
-                                        <div className="detail__evalute-item__rating">
-                                            <i className="home-product-item__start--gold fas fa-star" />
-                                            <i className="home-product-item__start--gold fas fa-star" />
-                                            <i className="home-product-item__start--gold fas fa-star" />
-                                            <i className="home-product-item__start--gold fas fa-star" />
-                                            <i className="fas fa-star" />
-                                        </div>
+                                        <Raiting star={productDeatail.star} />
                                     </div>
                                 </li>
                                 <li className="detail__evaluate-item">
-                                    <span className="detail__evaluate-item-number">4.5</span>
+                                    <span className="detail__evaluate-item-number">{productDeatail.evalue}k</span>
                                     <span className="detail__evaluate-item-name">Đánh giá</span>
                                 </li>
                                 <li className="detail__evaluate-item">
-                                    <span className="detail__evaluate-item-number">4.5</span>
+                                    <span className="detail__evaluate-item-number">{productDeatail.discount / 5}k</span>
                                     <span className="detail__evaluate-item-name">Đã bán</span>
                                 </li>
                             </ul>
@@ -52,11 +60,11 @@ function Detail(props) {
                                     <div className="detail__price">
                                         <div className="detail__price-sale">
                                             <span>đ</span>
-                                            <span>455.000</span>
+                                            <span>{productDeatail.price}</span>
                                         </div>
                                         <div className="detail__price-price">
                                             <span>đ</span>
-                                            <span>455.000</span>
+                                            <span>{productDeatail.price * productDeatail.discount / 100}</span>
                                         </div>
                                         <div className="detail__price-percent">19% giảm</div>
                                     </div>
@@ -176,19 +184,18 @@ function Detail(props) {
                                             />
                                         </div>
                                         <div className="detail__price-particular">
-                                            10080 sản phẩm đã bán
+                                            {productDeatail.saled} sản phẩm đã bán
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div className="button__buy-group mt-20">
-                                <button className="btn button__buy--addcart btn__size--lg">
+                                <button className="btn button__buy--addcart btn__size--lg" onClick={handleAddProductInCart}>
                                     <i className="header__cart-icon fas fa-cart-plus" />
                                     Thêm vào giỏ hàng
                                 </button>
-                                <button className="btn button__buy--now btn__size--lg">
-                                    <i className="header__cart-icon fas fa-cart-plus" />
-                                    Thêm vào giỏ hàng
+                                <button className="btn button__buy--now btn__size--lg" style={{ position: "relative", top: "-3px" }}>
+                                    Xem giỏ hàng
                                 </button>
                             </div>
                         </div>
