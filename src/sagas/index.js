@@ -29,10 +29,20 @@ function* getDetailProduct({ payload }) {
     }
 }
 
+function* getBeradCrumb({ payload }) {
+    const { params } = payload;
+    const dataBreadcrumb = yield call(productApis.getBeradCrumb, params);
+    const { status, data } = dataBreadcrumb;
+    if (status === 200) {
+        yield put(actionsProduct.fetchBreadcrumbSuccess(data));
+    }
+}
+
 function* rootSaga() {
     yield takeEvery(typesProduct.GET_PRODUCT, getProductAll);
     yield takeLatest(typesCart.ADD_CART, AddToCart);
     yield takeLatest(typesProduct.GET_DETAIL_PRODUCT, getDetailProduct);
+    yield takeLatest(typesProduct.GET_BREADCRUM, getBeradCrumb);
 }
 
 export default rootSaga;

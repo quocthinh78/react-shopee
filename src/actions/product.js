@@ -38,9 +38,12 @@ export const fetchDetailProductSuccess = (detail) => {
 };
 
 // fetchBreadcrumb
-export const fetchBreadcrumb = () => {
+export const fetchBreadcrumb = (id) => {
     return {
         type: typesProduct.GET_BREADCRUM,
+        payload: {
+            params: id,
+        },
     };
 };
 

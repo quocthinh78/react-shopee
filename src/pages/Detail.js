@@ -17,7 +17,7 @@ function Detail(props) {
     const idProduct = location.pathname.split("/").reverse()[0];
     useEffect(() => {
         dispatch(productActions.fetchDetailProduct(idProduct));
-        dispatch(productActions.fetchBreadcrumb());
+        dispatch(productActions.fetchBreadcrumb(idProduct));
     }, [location]);
     const productDeatail = useSelector((state) => state.product.productDetail);
     return (
