@@ -201,6 +201,12 @@
     justify-content: center;
     align-items: center;
     font-size: 20px;
+    cursor: pointer;
+}
+
+.detail__input-increment:disabled,
+.detail__input-decrement:disabled {
+    cursor: default;
 }
 
 .detail__input-decrement svg {

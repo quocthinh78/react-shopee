@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { currencyFormat } from "./../common/currency";
 import { useDispatch, useSelector } from "react-redux";
@@ -10,21 +10,31 @@ import Breadcrumb from "../components/Breadcrumb";
 import Raiting from "../components/Raiting";
 
 function Detail(props) {
+    const [quantity, setQuantity] = useState(1);
+
     const dispatch = useDispatch();
-    const handleAddProductInCart = (product) => {
-        dispatch(cartActions.addProductInCart(product));
+
+    const handleAddProductInCart = (product, quantity) => {
+        dispatch(cartActions.addProductInCart(product, quantity));
     };
+
     let location = useLocation();
+
     const idProduct = location.pathname.split("/").reverse()[0];
+
     useEffect(() => {
         dispatch(productActions.fetchDetailProduct(idProduct));
         dispatch(productActions.fetchBreadcrumb(idProduct));
     }, [location]);
+
     const productDeatail = useSelector((state) => state.product.productDetail);
+
     const breadCrumb = useSelector((state) => state.product.breadCrumb);
+
     return (
         <div className="app">
             <Header />
+
             <div className="app__container">
                 <div className="grid detail-wrap">
                     <Breadcrumb breadCrumb={breadCrumb} />
@@ -171,7 +181,7 @@ function Detail(props) {
                                 <div className="grid__column-10">
                                     <div className="detail__price-count">
                                         <div className="detail__price-count-group">
-                                            <button className="detail__input-decrement">
+                                            <button disabled={quantity <= 1} className="detail__input-decrement" onClick={() => setQuantity(quantity - 1)}>
                                                 <svg
                                                     enableBackground="new 0 0 10 10"
                                                     viewBox="0 0 10 10"
@@ -187,12 +197,15 @@ function Detail(props) {
                                             <input
                                                 className="detail__input-value"
                                                 type="text"
-                                                defaultValue={1}
+                                                value={quantity}
+                                                onChange={(e) => setQuantity(e.target.value)}
                                             />
                                             <input
                                                 className="detail__input-decrement"
+                                                disabled={quantity >= 10}
                                                 type="button"
                                                 defaultValue="+"
+                                                onClick={() => setQuantity(quantity + 1)}
                                             />
                                         </div>
                                         <div className="detail__price-particular">
@@ -206,7 +219,7 @@ function Detail(props) {
                             <div className="button__buy-group mt-20">
                                 <button
                                     className="btn button__buy--addcart btn__size--lg"
-                                    onClick={() => handleAddProductInCart(productDeatail)}
+                                    onClick={() => handleAddProductInCart(productDeatail, quantity)}
                                 >
                                     <i className="header__cart-icon fas fa-cart-plus" />
                                     Thêm vào giỏ hàng

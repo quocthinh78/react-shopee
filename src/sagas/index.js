@@ -14,12 +14,6 @@ function* getProductAll({ payload }) {
         yield put(actionsProduct.fetchProductSuccess(data));
     }
 }
-
-function* AddToCart({ payload }) {
-    const { product } = payload;
-    yield put(actionsCart.addProductInCartSuccess(product));
-}
-
 function* getDetailProduct({ payload }) {
     const { params } = payload;
     const productDetail = yield call(productApis.fetchProductDetail, params);
@@ -37,12 +31,26 @@ function* getBeradCrumb({ payload }) {
         yield put(actionsProduct.fetchBreadcrumbSuccess(data));
     }
 }
+// cart
+function* AddToCart({ payload }) {
+    const { product, quantity } = payload;
+    yield put(actionsCart.addProductInCartSuccess(product, quantity));
+}
+
+function* deleteCart({ payload }) {
+    const { product } = payload;
+    yield put(actionsCart.deleteCartSuccess(product))
+}
 
 function* rootSaga() {
+    // get product
     yield takeEvery(typesProduct.GET_PRODUCT, getProductAll);
-    yield takeLatest(typesCart.ADD_CART, AddToCart);
     yield takeLatest(typesProduct.GET_DETAIL_PRODUCT, getDetailProduct);
     yield takeLatest(typesProduct.GET_BREADCRUM, getBeradCrumb);
+
+    // cart
+    yield takeLatest(typesCart.ADD_CART, AddToCart);
+    yield takeLatest(typesCart.DELETE_CART, deleteCart)
 }
 
 export default rootSaga;

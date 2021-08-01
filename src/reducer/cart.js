@@ -1,9 +1,9 @@
 import { toastError, toastSuccess } from "./../helper/toastify";
 import * as typesCart from "./../constant/cart";
-const data = localStorage.getItem("cart");
+var data = localStorage.getItem("cart");
 
 const initialState = {
-    cart: data ? data : [],
+    cart: data ? JSON.parse(data) : [],
 };
 const findIndex = (cart, product) => {
     let i = -1;
@@ -15,26 +15,42 @@ const findIndex = (cart, product) => {
     return i;
 };
 const cartReducer = (state = initialState, action) => {
+    let index;
     switch (action.type) {
         case typesCart.ADD_CART_SUCCESS:
             toastSuccess("Thêm thành công");
-            const index = findIndex(state.cart, action.product);
+            index = findIndex(state.cart, action.payload.product);
             if (index === -1) {
-                let cartAdd = [{...action.product, quatity: 1 }].concat(state.cart);
+                let cartAdd = [
+                    { ...action.payload.product, quatity: action.payload.quantity },
+                ].concat(state.cart);
                 localStorage.setItem("cart", JSON.stringify(cartAdd));
                 return {
                     ...state,
                     cart: cartAdd,
                 };
             }
-            let count = { quatity: (state.cart[index].quatity += 1) };
-            const cartAddUp = [{...action.product, quatity: count.quatity }];
+            let count = {
+                quatity: (state.cart[index].quatity += action.payload.quantity),
+            };
+            const cartAddUp = [{ ...action.payload.product, quatity: count.quatity }];
+            localStorage.setItem('cart', JSON.stringify(state.cart))
             return {
                 ...state,
                 cart: cartAddUp,
             };
+        case typesCart.DELETE_CART_SUCCESS:
+            toastSuccess("Đã xoá sản phẩm");
+            index = findIndex(state.cart, action.payload.product);
+            console.log(index);
+            state.cart.splice(index, 1);
+            localStorage.setItem("cart", JSON.stringify(state.cart))
+            return {
+                ...state,
+                cart: state.cart
+            }
         default:
-            return {...state };
+            return { ...state };
     }
 };
 

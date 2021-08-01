@@ -1,10 +1,8 @@
 import {
   BrowserRouter as Router,
   Switch,
-  Redirect,
-  Prompt,
 } from "react-router-dom";
-import { Route, NavLink } from "react-router-dom";
+import { Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Detail from "./pages/Detail";
 import "./scss/base.scss";

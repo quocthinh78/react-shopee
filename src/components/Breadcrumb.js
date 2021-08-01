@@ -1,10 +1,7 @@
 import React, { useEffect } from "react";
 function Breadcrumb(props) {
     const { breadCrumb } = props;
-    console.log("dsa", breadCrumb)
-    useEffect(() => {
-
-    })
+    useEffect(() => { });
     return (
         <div className="grid__row">
             <div className="grid__column-12">
