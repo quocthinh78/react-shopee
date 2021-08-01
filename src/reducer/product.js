@@ -3,6 +3,7 @@ import * as types from "./../constant/product";
 const initialState = {
     products: [],
     productDetail: {},
+    breadCrumb: {},
 };
 
 const reducer = (state = initialState, action) => {
@@ -18,6 +19,13 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 productDetail: detail,
+            };
+
+        case types.GET_BREADCRUM_SUCCESS:
+            const { breadcrumb } = action.payload;
+            return {
+                ...state,
+                breadCrumb: breadcrumb,
             };
         default:
             return state;

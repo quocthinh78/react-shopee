@@ -1,11 +1,12 @@
-import React, { } from "react";
-import { useSelector, } from "react-redux";
-import * as productActions from "./../actions/cart"
+import React from "react";
+import { useSelector } from "react-redux";
+import * as productActions from "./../actions/cart";
 import HeaderSearch from "./HeaderSearch";
 import HeaderCart from "./HeaderCart";
 import HeaderNotify from "./HeaderNotify";
 function Header(props) {
     const productsIncart = useSelector((state) => state.cart.cart);
+    console.log("cart", productsIncart);
     return (
         <header className="header">
             <div className="grid">
@@ -100,6 +101,5 @@ function Header(props) {
         </header>
     );
 }
-
 
 export default Header;

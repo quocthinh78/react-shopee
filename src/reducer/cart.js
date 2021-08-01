@@ -1,7 +1,9 @@
 import { toastError, toastSuccess } from "./../helper/toastify";
 import * as typesCart from "./../constant/cart";
+const data = localStorage.getItem("cart");
+
 const initialState = {
-    cart: [],
+    cart: data ? data : [],
 };
 const findIndex = (cart, product) => {
     let i = -1;
@@ -18,15 +20,18 @@ const cartReducer = (state = initialState, action) => {
             toastSuccess("Thêm thành công");
             const index = findIndex(state.cart, action.product);
             if (index === -1) {
+                let cartAdd = [{...action.product, quatity: 1 }].concat(state.cart);
+                localStorage.setItem("cart", JSON.stringify(cartAdd));
                 return {
                     ...state,
-                    cart: [{...action.product, quatity: 1 }].concat(state.cart),
+                    cart: cartAdd,
                 };
             }
             let count = { quatity: (state.cart[index].quatity += 1) };
+            const cartAddUp = [{...action.product, quatity: count.quatity }];
             return {
                 ...state,
-                cart: [{...action.product, quatity: count.quatity }],
+                cart: cartAddUp,
             };
         default:
             return {...state };

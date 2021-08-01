@@ -274,6 +274,18 @@
     margin-right: 5px;
 }
 
+.breadcrumb .breadcrumb__cat {
+    max-width: 250px;
+}
+
+.breadcrumb .breadcrumb--long {
+    display: -webkit-box;
+    line-height: 20px;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+}
+
 .breadcrumb .breadcrumb__item:last-child svg {
     display: none;
 }

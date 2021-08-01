@@ -47,11 +47,11 @@ export const fetchBreadcrumb = (id) => {
     };
 };
 
-export const fetchBreadcrumbSuccess = (data) => {
+export const fetchBreadcrumbSuccess = (breadcrumb) => {
     return {
         type: typesProduct.GET_BREADCRUM_SUCCESS,
         payload: {
-            data,
+            breadcrumb,
         },
     };
 };

@@ -1081,6 +1081,7 @@ a.home-poduct-item {
     display: flex;
     align-items: baseline;
     flex-wrap: wrap;
+    justify-content: space-between;
 }
 
 .home-product-item__price-old {
@@ -1092,7 +1093,7 @@ a.home-poduct-item {
 
 .home-product-item__price-current {
     font-size: 1.6rem;
-    margin-left: 10px;
+    margin: 0 10px;
     color: var(--primary-color);
 }
 
