@@ -32,7 +32,7 @@ function Cart(props) {
                                         Tất cả (2 sản phẩm)
                                     </div>
                                     <div className="col-2">Đơn giá</div>
-                                    <div className="col-3">Số lương</div>
+                                    <div className="col-3">Số lượng</div>
                                     <div className="col-4">Thành tiền</div>
                                     <div className="col-5"><RiDeleteBin6Line /></div>
                                 </div>
