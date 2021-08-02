@@ -42,12 +42,11 @@ const cartReducer = (state = initialState, action) => {
         case typesCart.DELETE_CART_SUCCESS:
             toastSuccess("Đã xoá sản phẩm");
             index = findIndex(state.cart, action.payload.product);
-            console.log(index);
             state.cart.splice(index, 1);
             localStorage.setItem("cart", JSON.stringify(state.cart))
             return {
                 ...state,
-                cart: state.cart
+                cart: [...state.cart]
             }
         default:
             return { ...state };
