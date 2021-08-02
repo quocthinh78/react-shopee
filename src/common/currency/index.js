@@ -6,3 +6,9 @@ export const currencyFormat = (num, state) => {
     }
     return currency + "đ";
 };
+export const totalFormat = (quantity, total) => {
+    console.log(quantity)
+    const tot = total.slice(0, -1);
+    const tota = parseInt(tot);
+    return tota * quantity;
+}

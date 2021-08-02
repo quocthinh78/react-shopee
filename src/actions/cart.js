@@ -20,7 +20,25 @@ export const addProductInCartSuccess = (product, quantity) => {
 };
 
 // update cart
+export const updateCart = (product, quantity) => {
+    return {
+        type: typesCart.UPDATE_CART,
+        payload: {
+            product: product,
+            quantity: quantity,
+        }
+    }
+}
 
+export const updateCartSuccess = (product, quantity) => {
+    return {
+        type: typesCart.UPDATE_CART_SUCCESS,
+        payload: {
+            product: product,
+            quantity: quantity
+        }
+    }
+}
 // remove cart
 
 export const deleteCart = (product) => {
