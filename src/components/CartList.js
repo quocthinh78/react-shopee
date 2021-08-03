@@ -35,7 +35,7 @@ function CartList(props) {
                         </div>
                     </div>
                     {cartProduct && cartProduct.map(product => {
-                        return <CartItem onHandleUpdateCart={props.onHandleUpdateCart} product={product} key={product._id} />
+                        return <CartItem deleteProductInCart={props.deleteProductInCart} onHandleUpdateCart={props.onHandleUpdateCart} product={product} key={product._id} />
                     })}
                 </div>
                 <div className="grid__column-3">

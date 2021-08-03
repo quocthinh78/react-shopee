@@ -1,15 +1,28 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import * as cartActions from "./../actions/cart";
+import * as modalActions from "./../actions/modal";
 import HeaderSearch from "./HeaderSearch";
 import HeaderCart from "./HeaderCart";
 import HeaderNotify from "./HeaderNotify";
+import HeaderAuth from "./HeaderAuth";
+import ModalLogin from "./ModalLogin";
+import ModalRegister from "./ModalRegister";
 function Header(props) {
     const productsIncart = useSelector((state) => state.cart.cart);
 
     const dispatch = useDispatch();
     const handleDeleteCart = (product) => {
         dispatch(cartActions.deleteCart(product))
+    }
+    const showModalLogin = () => {
+        dispatch(modalActions.showModal());
+        dispatch(modalActions.changeModalContent(<ModalLogin />))
+
+    }
+    const showModalRegister = () => {
+        dispatch(modalActions.showModal());
+        dispatch(modalActions.changeModalContent(<ModalRegister />))
     }
     return (
         <header className="header">
@@ -60,31 +73,7 @@ function Header(props) {
                                 giúp
                             </a>
                         </li>
-                        {/* user khi dang nhap */}
-                        {/* <li class="header__navbar-item header__navbar-item--strong header__navbar-item--separate">Đăng kí</li>
-                    <li class="header__navbar-item header__navbar-item--strong">Đăng nhập</li> */}
-                        <li className="header__navbar-item header__navbar-user">
-                            <img
-                                src="/assets/img/user.png"
-                                alt=""
-                                className="header__navbar-user-img"
-                            />
-                            <span className="header__navbar-user-name">Quốc Thịnh</span>
-                            <ul className="header__navbar-user-menu">
-                                <li className="header__navbar-user-item">
-                                    <a>Tài khoản của tôi</a>
-                                </li>
-                                <li className="header__navbar-user-item">
-                                    <a>Địa chỉ của tôi</a>
-                                </li>
-                                <li className="header__navbar-user-item">
-                                    <a>Đơn mua</a>
-                                </li>
-                                <li className="header__navbar-user-item header__navbar-user-item-separate">
-                                    <a>Đăng xuất</a>
-                                </li>
-                            </ul>
-                        </li>
+                        <HeaderAuth showModalRegister={showModalRegister} showModalLogin={showModalLogin} />
                     </ul>
                 </nav>
                 <div className="header-with--search">
