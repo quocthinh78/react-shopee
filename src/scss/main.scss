@@ -479,6 +479,21 @@ header {
 }
 
 
+/* modal delete */
+
+.modal__delete-product-title {
+    padding-top: 30px;
+    font-size: 2rem;
+}
+
+.modal__delete-product-control {
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 30px;
+}
+
+
 /* header with search */
 
 .header-with--search {

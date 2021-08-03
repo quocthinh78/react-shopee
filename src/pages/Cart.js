@@ -18,9 +18,9 @@ function Cart(props) {
         }
     }
 
-    const deleteProductInCart = () => {
+    const deleteProductInCart = (product) => {
         dispatch(actionsModal.showModal());
-        dispatch(actionsModal.changeModalContent(<ModalDeleteProduct />))
+        dispatch(actionsModal.changeModalContent(<ModalDeleteProduct product={product} />))
     }
 
     return (

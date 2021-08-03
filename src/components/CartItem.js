@@ -58,7 +58,7 @@ function CartItem(props) {
                 </div>
                 <div className="cart__list-total-total col-4">{currencyFormat(product.quatity * (product.price * (100 - product.discount) / 100))}</div>
                 <div className="cart__list-total-delete col-5">
-                    <RiDeleteBin6Line onClick={props.deleteProductInCart} />
+                    <RiDeleteBin6Line onClick={() => props.deleteProductInCart(product)} />
                 </div>
             </div>
         </div>

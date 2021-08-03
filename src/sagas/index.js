@@ -5,6 +5,7 @@ import * as actionsProduct from "./../actions/product";
 import * as productApis from "./../apis/Product";
 import * as typesCart from "./../constant/cart";
 import * as actionsCart from "./../actions/cart";
+import * as actionModal from "./../actions/modal"
 
 function* getProductAll({ payload }) {
     const { params } = payload;
@@ -40,7 +41,8 @@ function* AddToCart({ payload }) {
 
 function* deleteCart({ payload }) {
     const { product } = payload;
-    yield put(actionsCart.deleteCartSuccess(product))
+    yield put(actionModal.hideModal())
+    yield put(actionsCart.deleteCartSuccess(product));
 }
 function* updateCart({ payload }) {
     yield delay(4000);
