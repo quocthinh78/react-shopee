@@ -1054,6 +1054,17 @@ header {
 
 /* product item */
 
+.product__list {
+    min-height: 600px;
+}
+
+.loading-product {
+    display: flex;
+    position: relative;
+    left: 50%;
+    margin-top: 150px;
+}
+
 a.home-poduct-item {
     text-decoration: none;
 }

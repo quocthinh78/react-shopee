@@ -132,7 +132,7 @@ input[type=number]::-webkit-inner-spin-button {
 
 .select-input {
     position: relative;
-    min-width: 160px;
+    min-width: 170px;
     height: 34px;
     padding: 0 12px;
     border-radius: 2px;
@@ -186,6 +186,28 @@ input[type=number]::-webkit-inner-spin-button {
 
 
 /* button style */
+
+
+/* sort */
+
+.select-input__item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.select-input__link i {
+    display: none;
+}
+
+.select-input__link.sort_selected i {
+    display: block;
+}
+
+.select-input__list i {
+    color: var(--primary-color);
+    margin-left: 2px;
+}
 
 .btn {
     min-width: 142px;

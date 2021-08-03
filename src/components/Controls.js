@@ -12,11 +12,13 @@ function Controls(props) {
                 <span className="select-input__label">Giá</span>
                 <i className="select-input__icon fas fa-angle-down" />
                 <ul className="select-input__list">
-                    <li className="select-input__item">
-                        <a className="select-input__link">Giá: Cao đến thấp</a>
+                    <li className="select-input__item" onClick={() => props.onSort(1)}>
+                        <span className={props.sortValue === 1 ? "select-input__link sort_selected" : "select-input__link"}>Giá: Cao đến thấp</span>
+                        <i className="fa fa-check"></i>
                     </li>
-                    <li className="select-input__item">
-                        <a className="select-input__link">Giá: Cao đến thấp</a>
+                    <li className="select-input__item" onClick={() => props.onSort(-1)}>
+                        <a className={props.sortValue === -1 ? "select-input__link sort_selected" : "select-input__link"}>Giá: Cao đến thấp</a>
+                        <i className="fa fa-check"></i>
                     </li>
                 </ul>
             </div>
