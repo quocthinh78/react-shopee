@@ -7,6 +7,7 @@ import * as typesCart from "./../constant/cart";
 import * as actionsCart from "./../actions/cart";
 import * as actionModal from "./../actions/modal"
 import * as typesControls from "./../constant/controls"
+import * as actionsControls from "./../actions/controls"
 
 function* getProductAll({ payload }) {
     const { params } = payload;
@@ -27,8 +28,8 @@ function* getDetailProduct({ payload }) {
 
 function* getBeradCrumb({ payload }) {
     const { params } = payload;
-    const dataBreadcrumb = yield call(productApis.getBeradCrumb, params);
-    const { status, data } = dataBreadcrumb;
+    const searchKey = yield call(productApis.getBeradCrumb, params);
+    const { status, data } = searchKey;
     if (status === 200) {
         yield put(actionsProduct.fetchBreadcrumbSuccess(data));
     }
@@ -53,11 +54,17 @@ function* updateCart({ payload }) {
 // sort 
 
 function* sortProduct({ payload }) {
-
     const { value } = payload;
     yield put(actionsProduct.sortProductSuccess(value))
 }
-
+function* searchKey({ payload }) {
+    const name = payload.value;
+    const searchKey = yield call(productApis.getSearchKey, { name });
+    const { status, data } = searchKey;
+    if (status === 200) {
+        yield put(actionsControls.searchSuccess(data));
+    }
+}
 function* rootSaga() {
     // get product
     yield takeEvery(typesProduct.GET_PRODUCT, getProductAll);
@@ -71,6 +78,9 @@ function* rootSaga() {
 
     // sort 
     yield takeLatest(typesControls.SORT, sortProduct)
+
+    //search
+    yield takeLatest(typesControls.SEARCH, searchKey)
 }
 
 export default rootSaga;

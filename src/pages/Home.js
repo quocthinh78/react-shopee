@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import * as productActions from "./../actions/product";
 import * as controlActions from "./../actions/controls";
@@ -20,6 +20,17 @@ function Home(props) {
         dispatch(controlActions.sortProduct(sortValue));
     }
 
+    const [pagination, setPagination] = useState({
+        page: 1,
+        limit: 10,
+        totalRows: 10
+    })
+
+    const [filters, setFilters] = useState({
+        page: 1,
+        limit: 10
+    })
+
     return (
         <div className="app" >
             <Header />
@@ -27,7 +38,7 @@ function Home(props) {
                 <div className="grid">
                     <div className="grid__row app__content">
                         <Siderbar />
-                        <Product onSort={handleSort} sortValue={sortValue} products={products} />
+                        <Product pagination={pagination} onSort={handleSort} sortValue={sortValue} products={products} />
                     </div>
                 </div>
             </div>

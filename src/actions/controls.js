@@ -29,7 +29,7 @@ export const searchProduct = (value) => {
 }
 export const searchSuccess = data => {
     return {
-        type: controlTypes.SORT_SUCCESS,
+        type: controlTypes.SEARCH_SUCCESS,
         payload: {
             data
         }

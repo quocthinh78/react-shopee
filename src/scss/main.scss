@@ -676,6 +676,10 @@ header {
 .header__search-history-item {
     height: 38px;
     padding: 0 12px;
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
 }
 
 .header__search-history-item:last-child {

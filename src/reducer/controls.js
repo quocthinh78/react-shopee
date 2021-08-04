@@ -1,7 +1,8 @@
 import * as controlTypes from "../constant/controls"
 
 const initialState = {
-    sortValue: 1
+    sortValue: 1,
+    searchName: []
 }
 
 const reducer = (state = initialState, action) => {
@@ -11,6 +12,11 @@ const reducer = (state = initialState, action) => {
             state.sortValue = value;
             return {
                 ...state
+            }
+        case controlTypes.SEARCH_SUCCESS:
+            return {
+                ...state,
+                searchName: action.payload.data
             }
         default: return state
 

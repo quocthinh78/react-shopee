@@ -28,6 +28,8 @@ function Header(props) {
     const handleSearch = value => {
         dispatch(controlActions.searchProduct(value))
     }
+
+    const searchName = useSelector(state => state.controls.searchName);
     return (
         <header className="header">
             <div className="grid">
@@ -91,7 +93,7 @@ function Header(props) {
                             </g>
                         </svg>
                     </div>
-                    <HeaderSearch search={handleSearch} />
+                    <HeaderSearch searchName={searchName} search={handleSearch} />
                     <HeaderCart handleDeleteCart={handleDeleteCart} productsIncart={productsIncart} />
                 </div>
             </div>

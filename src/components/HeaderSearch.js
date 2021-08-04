@@ -1,23 +1,20 @@
 import React from "react";
-
+import { NavLink } from "react-router-dom"
 function HeaderSearch(props) {
+    const { searchName } = props;
     return (<div className="header__search">
         <div className="header__search-input-wrap">
-            <input onChange={(e) => props.search(e.target.value)} type="text" className="header__search-input" placeholder="Nhập sản phẩm cần tìm" />
+            <input onFocus={e => props.search(e.target.value)} onChange={(e) => props.search(e.target.value)} type="text" className="header__search-input" placeholder="Nhập sản phẩm cần tìm" />
             <div className="header__search-history">
                 <h3 className="header__search-history-heading">
                     Lịch sử tìm kiếm
                 </h3>
                 <ul className="header__search-history-list">
-                    <li className="header__search-history-item">
-                        <a >Kem dưỡng da</a>
-                    </li>
-                    <li className="header__search-history-item">
-                        <a >Kem trị mụn</a>
-                    </li>
-                    <li className="header__search-history-item">
-                        <a >Kem dưỡng da</a>
-                    </li>
+                    {searchName.map((product) => {
+                        return (<li key={product._id} className="header__search-history-item">
+                            <NavLink to={`/detail/${product._id}`}>{product.name}</NavLink>
+                        </li>)
+                    })}
                 </ul>
             </div>
         </div>

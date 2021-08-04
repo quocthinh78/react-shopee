@@ -29,7 +29,7 @@ function Product(props) {
                         }
                     </Suspense>
                 </div>
-                <Pagination />
+                <Pagination pagination={props.pagination} />
             </div>
         </div>
     );
