@@ -8,3 +8,30 @@ export const sortProduct = (value) => {
         }
     }
 }
+export const sortProductSuce = value => {
+    return {
+        type: controlTypes.SORT_SUCCESS,
+        payload: {
+            value
+        }
+    }
+}
+
+
+// search 
+export const searchProduct = (value) => {
+    return {
+        type: controlTypes.SEARCH,
+        payload: {
+            value
+        }
+    }
+}
+export const searchSuccess = data => {
+    return {
+        type: controlTypes.SORT_SUCCESS,
+        payload: {
+            data
+        }
+    }
+}

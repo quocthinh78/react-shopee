@@ -19,7 +19,6 @@ function Home(props) {
     const handleSort = (sortValue) => {
         dispatch(controlActions.sortProduct(sortValue));
     }
-    console.log(sortValue)
 
     return (
         <div className="app" >

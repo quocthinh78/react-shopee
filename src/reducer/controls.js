@@ -7,7 +7,8 @@ const initialState = {
 const reducer = (state = initialState, action) => {
     switch (action.type) {
         case controlTypes.SORT:
-            state.sortValue = action.payload.value
+            const { value } = action.payload;
+            state.sortValue = value;
             return {
                 ...state
             }

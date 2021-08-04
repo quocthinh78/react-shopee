@@ -1,10 +1,9 @@
 import React from "react";
-import PropTypes from "prop-types";
 
 function HeaderSearch(props) {
     return (<div className="header__search">
         <div className="header__search-input-wrap">
-            <input type="text" className="header__search-input" placeholder="Nhập sản phẩm cần tìm" />
+            <input onChange={(e) => props.search(e.target.value)} type="text" className="header__search-input" placeholder="Nhập sản phẩm cần tìm" />
             <div className="header__search-history">
                 <h3 className="header__search-history-heading">
                     Lịch sử tìm kiếm
@@ -45,6 +44,5 @@ function HeaderSearch(props) {
     );
 }
 
-HeaderSearch.propTypes = {};
 
 export default HeaderSearch;

@@ -1,6 +1,5 @@
 import React from "react";
-import PropTypes from "prop-types";
-
+import { li, liButton } from "react-bootstrap"
 function Controls(props) {
     return (
         <div className="html-filter">
@@ -8,16 +7,16 @@ function Controls(props) {
             <button className="home-filter__btn btn">Phổ biến</button>
             <button className="home-filter__btn btn btn-primary">Mới nhất</button>
             <button className="home-filter__btn btn">Bán chạy</button>
-            <div className="select-input">
+            <div className="select-input curson-pointer">
                 <span className="select-input__label">Giá</span>
                 <i className="select-input__icon fas fa-angle-down" />
                 <ul className="select-input__list">
-                    <li className="select-input__item" onClick={() => props.onSort(1)}>
-                        <span className={props.sortValue === 1 ? "select-input__link sort_selected" : "select-input__link"}>Giá: Cao đến thấp</span>
+                    <li className={props.sortValue === 1 ? "select-input__item sort_selected" : "select-input__item"} onClick={() => props.onSort(1)}>
+                        <a className="select-input__link">Giá: Thấp đến cao</a>
                         <i className="fa fa-check"></i>
                     </li>
-                    <li className="select-input__item" onClick={() => props.onSort(-1)}>
-                        <a className={props.sortValue === -1 ? "select-input__link sort_selected" : "select-input__link"}>Giá: Cao đến thấp</a>
+                    <li className={props.sortValue === -1 ? "select-input__item sort_selected" : "select-input__item"} onClick={() => props.onSort(-1)}>
+                        <a className="select-input__link">Giá: Cao đến thấp</a>
                         <i className="fa fa-check"></i>
                     </li>
                 </ul>

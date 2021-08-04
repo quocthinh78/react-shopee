@@ -1,4 +1,4 @@
-import { delay, call, takeEvery, put, takeLatest } from "redux-saga/effects";
+import { call, takeEvery, put, takeLatest, delay } from "redux-saga/effects";
 
 import * as typesProduct from "./../constant/product";
 import * as actionsProduct from "./../actions/product";
@@ -6,6 +6,7 @@ import * as productApis from "./../apis/Product";
 import * as typesCart from "./../constant/cart";
 import * as actionsCart from "./../actions/cart";
 import * as actionModal from "./../actions/modal"
+import * as typesControls from "./../constant/controls"
 
 function* getProductAll({ payload }) {
     const { params } = payload;
@@ -34,7 +35,6 @@ function* getBeradCrumb({ payload }) {
 }
 // cart
 function* AddToCart({ payload }) {
-    yield delay(500)
     const { product, quantity } = payload;
     yield put(actionsCart.addProductInCartSuccess(product, quantity));
 }
@@ -49,6 +49,15 @@ function* updateCart({ payload }) {
     const { product, quantity } = payload;
     yield put(actionsCart.updateCartSuccess(product, quantity));
 }
+
+// sort 
+
+function* sortProduct({ payload }) {
+
+    const { value } = payload;
+    yield put(actionsProduct.sortProductSuccess(value))
+}
+
 function* rootSaga() {
     // get product
     yield takeEvery(typesProduct.GET_PRODUCT, getProductAll);
@@ -59,6 +68,9 @@ function* rootSaga() {
     yield takeLatest(typesCart.ADD_CART, AddToCart);
     yield takeLatest(typesCart.DELETE_CART, deleteCart)
     yield takeLatest(typesCart.UPDATE_CART, updateCart)
+
+    // sort 
+    yield takeLatest(typesControls.SORT, sortProduct)
 }
 
 export default rootSaga;

@@ -196,11 +196,11 @@ input[type=number]::-webkit-inner-spin-button {
     align-items: center;
 }
 
-.select-input__link i {
+.select-input__item i {
     display: none;
 }
 
-.select-input__link.sort_selected i {
+.select-input__item.sort_selected i {
     display: block;
 }
 
@@ -208,6 +208,9 @@ input[type=number]::-webkit-inner-spin-button {
     color: var(--primary-color);
     margin-left: 2px;
 }
+
+
+/* button */
 
 .btn {
     min-width: 142px;

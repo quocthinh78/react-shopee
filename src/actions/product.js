@@ -55,3 +55,13 @@ export const fetchBreadcrumbSuccess = (breadcrumb) => {
         },
     };
 };
+
+// controls
+export const sortProductSuccess = (value) => {
+    return {
+        type: typesProduct.SORT_SUCCESS,
+        payload: {
+            value
+        }
+    }
+}

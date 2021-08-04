@@ -27,6 +27,16 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 breadCrumb: breadcrumb,
             };
+        case types.SORT_SUCCESS:
+            const { value } = action.payload;
+            state.products.sort((a, b) => {
+                if (a.price < b.price) return value;
+                if (a.price > b.price) return -value;
+                return 0
+            })
+            return {
+                ...state
+            }
         default:
             return state;
     }

@@ -2,6 +2,7 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import * as cartActions from "./../actions/cart";
 import * as modalActions from "./../actions/modal";
+import * as controlActions from "./../actions/controls";
 import HeaderSearch from "./HeaderSearch";
 import HeaderCart from "./HeaderCart";
 import HeaderNotify from "./HeaderNotify";
@@ -23,6 +24,9 @@ function Header(props) {
     const showModalRegister = () => {
         dispatch(modalActions.showModal());
         dispatch(modalActions.changeModalContent(<ModalRegister />))
+    }
+    const handleSearch = value => {
+        dispatch(controlActions.searchProduct(value))
     }
     return (
         <header className="header">
@@ -87,7 +91,7 @@ function Header(props) {
                             </g>
                         </svg>
                     </div>
-                    <HeaderSearch />
+                    <HeaderSearch search={handleSearch} />
                     <HeaderCart handleDeleteCart={handleDeleteCart} productsIncart={productsIncart} />
                 </div>
             </div>
