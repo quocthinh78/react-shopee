@@ -10,11 +10,15 @@ import * as typesControls from "./../constant/controls"
 import * as actionsControls from "./../actions/controls"
 
 function* getProductAll({ payload }) {
+    yield delay(400)
     const { params } = payload;
-    const products = yield call(productApis.fetchProduct, params);
-    const { status, data } = products;
+    const response = yield call(productApis.pagination, params);
+    const { status, data } = response;
+    const { products, pagination } = data;
     if (status === 200) {
-        yield put(actionsProduct.fetchProductSuccess(data));
+        yield put(actionsProduct.fetchProductSuccess(products));
+        yield put(actionsProduct.paginationSuccess(pagination));
+
     }
 }
 function* getDetailProduct({ payload }) {
@@ -46,7 +50,6 @@ function* deleteCart({ payload }) {
     yield put(actionsCart.deleteCartSuccess(product));
 }
 function* updateCart({ payload }) {
-    yield delay(4000);
     const { product, quantity } = payload;
     yield put(actionsCart.updateCartSuccess(product, quantity));
 }
@@ -65,6 +68,7 @@ function* searchKey({ payload }) {
         yield put(actionsControls.searchSuccess(data));
     }
 }
+
 function* rootSaga() {
     // get product
     yield takeEvery(typesProduct.GET_PRODUCT, getProductAll);
@@ -81,6 +85,8 @@ function* rootSaga() {
 
     //search
     yield takeLatest(typesControls.SEARCH, searchKey)
+
+
 }
 
 export default rootSaga;

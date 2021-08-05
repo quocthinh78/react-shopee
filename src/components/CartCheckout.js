@@ -12,12 +12,10 @@ export default function CartCheckout(props) {
                 let totalAlls = 0;
                 cartProduct.forEach(product => {
                     totals += (product.price * (100 - product.discount) / 100) * product.quatity;
-                    console.log(totals);
                     totalAlls += product.price * product.quatity;
                 })
                 setTotal(totals)
                 setTotalAll(totalAlls)
-                console.log("aaa")
             }
         )()
 

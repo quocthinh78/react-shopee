@@ -9,9 +9,9 @@ import Footer from "./../components/Footer";
 import Product from "../components/Product";
 function Home(props) {
     const dispatch = useDispatch();
-    useEffect(() => {
-        dispatch(productActions.fetchProduct());
-    }, [dispatch]);
+
+    const category = useSelector(state => state.product.breadCrumb);
+
     const products = useSelector((state) => state.product.products);
 
     const sortValue = useSelector(state => state.controls.sortValue)
@@ -19,17 +19,23 @@ function Home(props) {
     const handleSort = (sortValue) => {
         dispatch(controlActions.sortProduct(sortValue));
     }
-    const [pagination, setPagination] = useState({
-        page: 1,
-        limit: 10,
-        totalRows: 10
-    })
+    const pagination = useSelector(state => state.pagination);
+    const [pages, setPage] = useState(pagination)
 
-    const [filters, setFilters] = useState({
-        page: 1,
-        limit: 10
-    })
+    useEffect(() => {
+        (
+            async (done) => {
+                dispatch(productActions.fetchProduct(pages));
+            }
+        )()
+    }, [pages]);
 
+    const handleChangePage = (page) => {
+        setPage({
+            ...pages,
+            page: page,
+        })
+    }
     return (
         <div className="app" >
             <Header />
@@ -37,7 +43,7 @@ function Home(props) {
                 <div className="grid">
                     <div className="grid__row app__content">
                         <Siderbar />
-                        <Product pagination={pagination} onSort={handleSort} sortValue={sortValue} products={products} />
+                        <Product handleChangePage={handleChangePage} pagination={pagination} onSort={handleSort} sortValue={sortValue} products={products} />
                     </div>
                 </div>
             </div>

@@ -1,6 +1,7 @@
 import {
   BrowserRouter as Router,
   Switch,
+  Redirect
 } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { Route } from "react-router-dom";
@@ -19,9 +20,11 @@ function App() {
     <Router>
       {!isModal ? "" : <Modal />}
       <Switch>
-        <Route exact path="/" render={() => <Home />} />
+        <Redirect exact from="/" to="/home" />
+        <Route exact path="/home" render={() => <Home />} />
         <Route path="/detail/:id" render={() => <Detail />} />
         <Route path="/cart" render={() => <Cart />} />
+
       </Switch>
     </Router>
   );

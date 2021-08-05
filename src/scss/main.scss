@@ -285,6 +285,7 @@ header {
 .header__notyfi-link {
     display: flex;
     padding: 12px;
+    text-decoration: none;
 }
 
 .header__notyfi-img {
@@ -949,6 +950,7 @@ header {
 
 .category-item--active .category-item__link {
     color: var(--primary-color);
+    cursor: pointer;
 }
 
 .category-item--active .category-item__link::before {

@@ -5,7 +5,7 @@ export const fetchProduct = (params = {}) => {
     return {
         type: typesProduct.GET_PRODUCT,
         payload: {
-            params: "",
+            params
         },
     };
 };
@@ -62,6 +62,34 @@ export const sortProductSuccess = (value) => {
         type: typesProduct.SORT_SUCCESS,
         payload: {
             value
+        }
+    }
+}
+
+
+export const paginationSuccess = pagination => {
+    return {
+        type: typesProduct.PAGINATION_SUCCESS,
+        payload: {
+            pagination
+        }
+    }
+}
+
+//category 
+export const fetchCategory = (pages) => {
+    return {
+        type: typesProduct.FETCH_CATEGORY,
+        payload: {
+            pages
+        }
+    }
+}
+export const fetchCategorySuccess = category => {
+    return {
+        type: typesProduct.FETCH_CATEGORY_SUCESS,
+        payload: {
+            category
         }
     }
 }

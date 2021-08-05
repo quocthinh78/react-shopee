@@ -31,7 +31,9 @@ export const pagination = (params = {}) => {
     let queryParmas = "";
     if (Object.keys(params).length > 0) {
         queryParmas = `?${qs.stringify(params)}`;
-        console.log(queryParmas);
     }
     return AxiosService.get(`${API_POINT}/${url}/pagination${queryParmas}`)
+}
+export const fetchCategory = () => {
+    return AxiosService.get(`${API_POINT}/${url}/category`);
 }

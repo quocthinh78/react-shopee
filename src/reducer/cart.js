@@ -50,7 +50,6 @@ const cartReducer = (state = initialState, action) => {
             }
         case typesCart.UPDATE_CART:
             index = findIndex(state.cart, action.payload.product);
-            // console.log(index, action.payload.quantity)
             state.cart[index].quatity = action.payload.quantity;
             localStorage.setItem('cart', JSON.stringify(state.cart))
             return {

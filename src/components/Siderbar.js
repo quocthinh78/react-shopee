@@ -11,24 +11,18 @@ function Siderbar(props) {
                 <ul className="category-list">
                     <li className="categorty-item category-item--active">
                         <a className="category-item__link">
-                            Trang điểm mặt
+                            Tất cả
                         </a>
                     </li>
-                    <li className="categorty-item">
-                        <a className="category-item__link">
-                            Trang điểm mặt
-                        </a>
-                    </li>
-                    <li className="categorty-item">
-                        <a className="category-item__link">
-                            Trang điểm mặt
-                        </a>
-                    </li>
-                    <li className="categorty-item">
-                        <a className="category-item__link">
-                            Trang điểm mặt
-                        </a>
-                    </li>
+                    {/* {
+                        category.map(cat => {
+                            return (<li className="categorty-item category-item--active">
+                                <a className="category-item__link">
+                                    {cat}
+                                </a>
+                            </li>)
+                        })
+                    } */}
                 </ul>
             </nav>
         </div>
