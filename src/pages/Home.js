@@ -19,7 +19,6 @@ function Home(props) {
     const handleSort = (sortValue) => {
         dispatch(controlActions.sortProduct(sortValue));
     }
-
     const [pagination, setPagination] = useState({
         page: 1,
         limit: 10,

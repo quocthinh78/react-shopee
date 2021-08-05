@@ -5,8 +5,8 @@ import PropTypes from "prop-types";
 function Pagination(props) {
     const indexPage = (totolPages) => {
         let html = [];
-        for (let i = 0; i < totolPages.length; i++) {
-            html.push(<li className="pagination-item pagination-item--active">
+        for (let i = 0; i < totolPages; i++) {
+            html.push(<li key={i} className="pagination-item pagination-item--active">
                 <a key={i} className="pagination-item__link">1</a>
             </li>)
         }

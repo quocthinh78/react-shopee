@@ -32,7 +32,7 @@ function CartList(props) {
                                 <div className="col-2">Đơn giá</div>
                                 <div className="col-3">Số lượng</div>
                                 <div className="col-4">Thành tiền</div>
-                                <div className="col-5"><RiDeleteBin6Line /></div>
+                                <div><RiDeleteBin6Line /></div>
                             </div>
                         </div>
                         {cartProduct && cartProduct.map(product => {

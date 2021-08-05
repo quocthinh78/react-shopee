@@ -232,7 +232,8 @@
 .button__buy--addcart {
     background-color: rgba(238, 77, 45, 0.2);
     color: var(--primary-color);
-    border: 1px solid var(--primary-color)
+    border: 1px solid var(--primary-color);
+    margin-top: -6px;
 }
 
 .button__buy--now {
