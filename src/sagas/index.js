@@ -68,7 +68,11 @@ function* searchKey({ payload }) {
         yield put(actionsControls.searchSuccess(data));
     }
 }
-
+function* fetchCategory({ payload }) {
+    const response = yield call(productApis.fetchCategory);
+    const { data } = response;
+    yield put(actionsProduct.fetchCategorySuccess(data));
+}
 function* rootSaga() {
     // get product
     yield takeEvery(typesProduct.GET_PRODUCT, getProductAll);
@@ -86,7 +90,8 @@ function* rootSaga() {
     //search
     yield takeLatest(typesControls.SEARCH, searchKey)
 
-
+    //category
+    yield takeLatest(typesProduct.FETCH_CATEGORY, fetchCategory)
 }
 
 export default rootSaga;

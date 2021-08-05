@@ -12,3 +12,8 @@ export const totalFormat = (quantity, total) => {
     const tota = parseInt(tot);
     return tota * quantity;
 }
+export const changslug = (name) => {
+    const sl = name.split(' ');
+    const slug = sl.join("-");
+    return slug
+}

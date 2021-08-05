@@ -10,7 +10,6 @@ import Product from "../components/Product";
 function Home(props) {
     const dispatch = useDispatch();
 
-    const category = useSelector(state => state.product.breadCrumb);
 
     const products = useSelector((state) => state.product.products);
 
@@ -26,6 +25,7 @@ function Home(props) {
         (
             async (done) => {
                 dispatch(productActions.fetchProduct(pages));
+                dispatch(productActions.fetchCategory({ page: "thinh" }));
             }
         )()
     }, [pages]);
@@ -36,13 +36,14 @@ function Home(props) {
             page: page,
         })
     }
+    const categoryList = useSelector(state => state.product.category);
     return (
         <div className="app" >
             <Header />
             <div className="app__container">
                 <div className="grid">
                     <div className="grid__row app__content">
-                        <Siderbar />
+                        <Siderbar categoryList={categoryList} />
                         <Product handleChangePage={handleChangePage} pagination={pagination} onSort={handleSort} sortValue={sortValue} products={products} />
                     </div>
                 </div>

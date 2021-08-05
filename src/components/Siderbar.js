@@ -1,7 +1,8 @@
 import React from "react";
-import PropTypes from "prop-types";
-
+import { NavLink } from "react-router-dom";
+import { changslug } from "./../common/currency"
 function Siderbar(props) {
+    const { categoryList } = props;
     return (
         <div className="grid__column-2">
             <nav className="category">
@@ -9,26 +10,26 @@ function Siderbar(props) {
                     <i className="category__heading-icon fas fa-list"></i> Danh mục
                 </h3>
                 <ul className="category-list">
-                    <li className="categorty-item category-item--active">
+                    <NavLink to="/home" className="categorty-item" activeClassName="category-item--active">
                         <a className="category-item__link">
                             Tất cả
                         </a>
-                    </li>
-                    {/* {
-                        category.map(cat => {
-                            return (<li className="categorty-item category-item--active">
+                    </NavLink>
+                    {
+                        categoryList.map(cat => {
+                            const slug = changslug(cat.name)
+                            return (<NavLink to={`/${slug}/${cat._id}`} key={cat._id} className="categorty-item" activeClassName="category-item--active">
                                 <a className="category-item__link">
-                                    {cat}
+                                    {cat.name}
                                 </a>
-                            </li>)
+                            </NavLink>)
                         })
-                    } */}
+                    }
                 </ul>
             </nav>
         </div>
     );
 }
 
-Siderbar.propTypes = {};
 
 export default Siderbar;

@@ -34,6 +34,6 @@ export const pagination = (params = {}) => {
     }
     return AxiosService.get(`${API_POINT}/${url}/pagination${queryParmas}`)
 }
-export const fetchCategory = () => {
+export const fetchCategory = (params = {}) => {
     return AxiosService.get(`${API_POINT}/${url}/category`);
 }

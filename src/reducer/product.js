@@ -4,6 +4,7 @@ const initialState = {
     products: [],
     productDetail: {},
     breadCrumb: {},
+    category: []
 };
 
 const reducer = (state = initialState, action) => {
@@ -36,6 +37,11 @@ const reducer = (state = initialState, action) => {
             })
             return {
                 ...state
+            }
+        case types.FETCH_CATEGORY_SUCESS:
+            return {
+                ...state,
+                category: action.payload.category,
             }
         default:
             return state;
