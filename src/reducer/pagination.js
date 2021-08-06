@@ -2,6 +2,7 @@ import * as pagesType from "./../constant/product"
 const initialState = {
     page: 1,
     limit: 10,
+    cat: null
 }
 
 const reducer = (state = initialState, action) => {
@@ -9,7 +10,13 @@ const reducer = (state = initialState, action) => {
         case pagesType.PAGINATION_SUCCESS:
             const { pagination } = action.payload;
             state = pagination;
-            return state
+            return { ...state }
+        case pagesType.LOADING_QUERY:
+            const { query } = action.payload;
+            console.log("dasd", query)
+            return {
+                ...query
+            }
         default: return state
     }
 }

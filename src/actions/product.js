@@ -93,3 +93,18 @@ export const fetchCategorySuccess = category => {
         }
     }
 }
+
+export const loadingQuery = query => {
+    return {
+        type: typesProduct.LOADING_QUERY,
+        payload: {
+            query
+        }
+    }
+}
+
+export const sortDefault = () => {
+    return {
+        type: typesProduct.SORT_DEFAULT,
+    }
+}

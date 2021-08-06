@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { useParams } from "react-router-dom"
 import * as productActions from "./../actions/product";
 import * as controlActions from "./../actions/controls";
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -9,9 +10,10 @@ import Footer from "./../components/Footer";
 import Product from "../components/Product";
 function Home(props) {
     const dispatch = useDispatch();
+    const { id } = useParams();
+    const idRef = useRef(null);
+    let products = useSelector((state) => state.product.products);
 
-
-    const products = useSelector((state) => state.product.products);
 
     const sortValue = useSelector(state => state.controls.sortValue)
 
@@ -20,15 +22,21 @@ function Home(props) {
     }
     const pagination = useSelector(state => state.pagination);
     const [pages, setPage] = useState(pagination)
-
     useEffect(() => {
-        (
-            async (done) => {
-                dispatch(productActions.fetchProduct(pages));
-                dispatch(productActions.fetchCategory({ page: "thinh" }));
+        const loading = () => {
+            if (id === idRef.current) {
+                dispatch(productActions.fetchProduct({ ...pages, cat: id }));
+            } else {
+                dispatch(productActions.fetchProduct({ ...pages, page: 1, cat: id }));
             }
-        )()
-    }, [pages]);
+            dispatch(productActions.fetchCategory({ page: "" }));
+            // dispatch(productActions.sortDefault())
+        }
+        loading()
+
+        return () => idRef.current = id;
+
+    }, [pages, id]);
 
     const handleChangePage = (page) => {
         setPage({

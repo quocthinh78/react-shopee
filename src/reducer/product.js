@@ -2,6 +2,7 @@ import * as types from "./../constant/product";
 
 const initialState = {
     products: [],
+    productBeroreSort: [],
     productDetail: {},
     breadCrumb: {},
     category: []
@@ -14,6 +15,7 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 products: data,
+                productBeroreSort: data
             };
         case types.GET_DETAIL_PRODUCT_SUCCESS:
             const { detail } = action.payload;
@@ -42,6 +44,10 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 category: action.payload.category,
+            }
+        case types.SORT_DEFAULT:
+            return {
+                ...state
             }
         default:
             return state;
