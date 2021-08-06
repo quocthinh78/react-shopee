@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom"
 import { useLocation } from "react-router-dom";
 import { currencyFormat } from "./../common/currency";
 import { useDispatch, useSelector } from "react-redux";
@@ -224,12 +225,12 @@ function Detail(props) {
                                     <i className="header__cart-icon fas fa-cart-plus" />
                                     Thêm vào giỏ hàng
                                 </button>
-                                <button
+                                <Link to="/cart"
                                     className="btn button__buy--now btn__size--lg"
                                     style={{ position: "relative", top: "-3px" }}
                                 >
                                     Xem giỏ hàng
-                                </button>
+                                </Link>
                             </div>
                         </div>
                     </div>

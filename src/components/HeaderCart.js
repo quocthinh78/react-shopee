@@ -6,7 +6,7 @@ function HeaderCart(props) {
         <div className="header__cart">
             <div className="header__cart-wrap">
                 <i className="header__cart-icon fas fa-shopping-cart" />
-                <span className="header__cart-notice">3</span>
+                <span className="header__cart-notice">{productsIncart.length}</span>
                 {/* No cart : header__cart-list--no-cart */}
                 <div
                     className={

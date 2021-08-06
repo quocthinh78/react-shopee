@@ -5,7 +5,7 @@ function ProductItem(props) {
     const { product } = props;
     return (
         <div className="grid__column-2-4">
-            <NavLink className="home-poduct-item" to={`detail/${product._id}`}>
+            <NavLink className="home-poduct-item" to={`/detail/${product._id}`}>
                 <div
                     className="home-product-item__img"
                     style={{ backgroundImage: `url(${product.image})` }}

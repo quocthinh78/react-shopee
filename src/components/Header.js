@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import * as cartActions from "./../actions/cart";
 import * as modalActions from "./../actions/modal";
@@ -11,7 +11,7 @@ import ModalLogin from "./ModalLogin";
 import ModalRegister from "./ModalRegister";
 function Header(props) {
     const productsIncart = useSelector((state) => state.cart.cart);
-
+    const [isOpenSearch, setIsOpenSearch] = useState(false)
     const dispatch = useDispatch();
     const handleDeleteCart = (product) => {
         dispatch(cartActions.deleteCart(product))
@@ -30,6 +30,10 @@ function Header(props) {
     }
 
     const searchName = useSelector(state => state.controls.searchName);
+
+    const handleOpen = (value) => {
+        setIsOpenSearch(value)
+    }
     return (
         <header className="header">
             <div className="grid">
@@ -93,7 +97,7 @@ function Header(props) {
                             </g>
                         </svg>
                     </div>
-                    <HeaderSearch searchName={searchName} search={handleSearch} />
+                    <HeaderSearch handleOpen={handleOpen} isOpenSearch={isOpenSearch} searchName={searchName} search={handleSearch} />
                     <HeaderCart handleDeleteCart={handleDeleteCart} productsIncart={productsIncart} />
                 </div>
             </div>

@@ -22,8 +22,8 @@ function App() {
       <Switch>
         <Redirect exact from="/" to="/home" />
         <Route exact path="/home" render={() => <Home />} />
+        <Route exact path="/detail/:id" render={() => <Detail />} />
         <Route path="/:slug/:id" render={() => <Home />} />
-        <Route path="/detail/:id" render={() => <Detail />} />
         <Route path="/cart" render={() => <Cart />} />
 
       </Switch>
