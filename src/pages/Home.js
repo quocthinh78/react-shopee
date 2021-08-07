@@ -15,6 +15,7 @@ function Home(props) {
     const idRef = useRef(null);
     let products = useSelector((state) => state.product.products);
     const isLogin = useSelector(state => state.user.isLogin)
+    const typeMoney = useSelector((state) => state.product.typeMoney)
 
     const sortValue = useSelector(state => state.controls.sortValue)
 
@@ -56,7 +57,7 @@ function Home(props) {
                 <div className="grid">
                     <div className="grid__row app__content">
                         <Siderbar categoryList={categoryList} />
-                        <Product handleChangePage={handleChangePage} pagination={pagination} onSort={handleSort} sortValue={sortValue} products={products} />
+                        <Product typeMoney={typeMoney} handleChangePage={handleChangePage} pagination={pagination} onSort={handleSort} sortValue={sortValue} products={products} />
                     </div>
                 </div>
             </div>

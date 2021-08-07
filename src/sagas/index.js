@@ -84,7 +84,6 @@ function* register({ payload }) {
 
 function* login({ payload }) {
     const { data } = payload;
-    console.log(data)
     const response = yield call(userApis.login, data);
     const { status } = response;
     if (status === 200) {
@@ -93,10 +92,14 @@ function* login({ payload }) {
 }
 
 function* getUser() {
-    const response = yield call(userActions.getUser)
+    const response = yield call(userApis.getUser)
     const { data } = response;
-    console.log(response)
     yield put(userActions.getUserSuccess(data))
+}
+
+function* logout() {
+    yield call(userApis.logout);
+    yield put(userActions.logoutSucces())
 }
 function* rootSaga() {
     // get product
@@ -122,6 +125,7 @@ function* rootSaga() {
     yield takeLatest(typesUser.REGISTER, register);
     yield takeLatest(typesUser.LOGIN, login);
     yield takeLatest(typesUser.GET_USER, getUser)
+    yield takeLatest(typesUser.LOGOUT, logout)
 }
 
 export default rootSaga;

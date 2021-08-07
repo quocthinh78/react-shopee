@@ -12,6 +12,7 @@ function ModalLogin(props) {
     const isLogin = useSelector((state) => state.user.isLogin)
     if (isLogin) {
         history.push("/");
+        dispatch(modalActions.hideModal())
     }
     const hideModal = () => {
         dispatch(modalActions.hideModal())
@@ -30,7 +31,6 @@ function ModalLogin(props) {
                 [e.target.name]: e.target.value
             }
         })
-        console.log(formValue)
     }
     const handleSubmit = (e) => {
         setformValue((formValue) => {

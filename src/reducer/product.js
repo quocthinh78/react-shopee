@@ -5,7 +5,8 @@ const initialState = {
     productBeroreSort: [],
     productDetail: {},
     breadCrumb: {},
-    category: []
+    category: [],
+    typeMoney: "usd"
 };
 
 const reducer = (state = initialState, action) => {
@@ -48,6 +49,11 @@ const reducer = (state = initialState, action) => {
         case types.SORT_DEFAULT:
             return {
                 ...state
+            }
+        case types.CHANGE_MONEY:
+            return {
+                ...state,
+                typeMoney: action.payload.types
             }
         default:
             return state;

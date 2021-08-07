@@ -20,28 +20,13 @@ export const login = (data = {}) => {
         email: data.email,
         password: data.password,
     }
-    return AxiosService.post(`${API_POINT}/${url}/login`, datas, {
-        credentials: "include",
-        headers: {
-            'Accesçs-Control-Allow-Origin': '*', 'Content-Type': 'application/json'
-        }
-    })
+    return AxiosService.post(`${API_POINT}/${url}/login`, datas)
 }
 
 export const getUser = () => {
-    return AxiosService.get(`${API_POINT}/${url}/user`, {
-        credentials: "include",
-        headers: {
-            'Accesçs-Control-Allow-Origin': '*', 'Content-Type': 'application/json'
-        }
-    })
+    return AxiosService.get(`${API_POINT}/${url}/user`)
 }
 
 export const logout = () => {
-    return AxiosService.get(`${API_POINT}/${url}/logout`, {
-        credentials: "include",
-        headers: {
-            'Accesçs-Control-Allow-Origin': '*', 'Content-Type': 'application/json'
-        }
-    })
+    return AxiosService.post(`${API_POINT}/${url}/logout`)
 }

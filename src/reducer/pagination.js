@@ -13,7 +13,6 @@ const reducer = (state = initialState, action) => {
             return { ...state }
         case pagesType.LOADING_QUERY:
             const { query } = action.payload;
-            console.log("dasd", query)
             return {
                 ...query
             }

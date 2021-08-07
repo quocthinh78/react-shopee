@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import * as cartActions from "./../actions/cart";
 import * as modalActions from "./../actions/modal";
 import * as controlActions from "./../actions/controls";
+import * as userActions from "./../actions/user"
 import HeaderSearch from "./HeaderSearch";
 import HeaderCart from "./HeaderCart";
 import HeaderNotify from "./HeaderNotify";
@@ -11,6 +12,7 @@ import ModalLogin from "./ModalLogin";
 import ModalRegister from "./ModalRegister";
 function Header(props) {
     const productsIncart = useSelector((state) => state.cart.cart);
+    const userInfo = useSelector((state) => state.user.userInfo)
     const [isOpenSearch, setIsOpenSearch] = useState(false)
     const dispatch = useDispatch();
     const handleDeleteCart = (product) => {
@@ -33,6 +35,10 @@ function Header(props) {
 
     const handleOpen = (value) => {
         setIsOpenSearch(value)
+    }
+
+    const hanleLogout = () => {
+        dispatch(userActions.logout())
     }
     return (
         <header className="header">
@@ -83,7 +89,7 @@ function Header(props) {
                                 giúp
                             </a>
                         </li>
-                        <HeaderAuth showModalRegister={showModalRegister} showModalLogin={showModalLogin} />
+                        <HeaderAuth hanleLogout={hanleLogout} userInfo={userInfo} showModalRegister={showModalRegister} showModalLogin={showModalLogin} />
                     </ul>
                 </nav>
                 <div className="header-with--search">

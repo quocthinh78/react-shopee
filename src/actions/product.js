@@ -108,3 +108,14 @@ export const sortDefault = () => {
         type: typesProduct.SORT_DEFAULT,
     }
 }
+
+// money exchange 
+
+export const changeMoney = (types) => {
+    return {
+        type: typesProduct.CHANGE_MONEY,
+        payload: {
+            types
+        }
+    }
+}

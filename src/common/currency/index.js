@@ -1,10 +1,19 @@
-export const currencyFormat = (num, state) => {
-    const cur = num.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
-    const currency = cur.slice(0, -3);
-    if (state === 1) {
-        return currency;
+export const currencyFormat = (num, state, type) => {
+    let cur;
+    let currency
+    if (type === "vnd") {
+        cur = num.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
+        currency = cur.slice(0, -3);
+        if (state === 1) {
+            return currency;
+        }
+        return currency + "đ";
     }
-    return currency + "đ";
+    if (type === "usd") {
+        currency = (parseInt(num) / 23000).toFixed(2);
+        return "usd " + currency
+
+    }
 };
 export const totalFormat = (quantity, total) => {
     const tot = total.slice(0, -1);

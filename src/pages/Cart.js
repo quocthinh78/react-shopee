@@ -9,7 +9,8 @@ import ModalDeleteProduct from "./../components/ModalDeleteProduct"
 
 function Cart(props) {
     const cartProduct = useSelector((state) => state.cart.cart);
-
+    const typeMoney = useSelector((state) => state.product.typeMoney);
+    console.log(typeMoney)
     const dispatch = useDispatch();
 
     const onHandleUpdateCart = (product, quantity) => {
@@ -27,7 +28,7 @@ function Cart(props) {
         <div className="app">
             <Header />
             <div className="app__container">
-                <CartList deleteProductInCart={deleteProductInCart} onHandleUpdateCart={onHandleUpdateCart} cartProduct={cartProduct} />
+                <CartList typeMoney={typeMoney} deleteProductInCart={deleteProductInCart} onHandleUpdateCart={onHandleUpdateCart} cartProduct={cartProduct} />
             </div>
             <Footer />
         </div>

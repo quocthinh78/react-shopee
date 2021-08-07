@@ -15,7 +15,7 @@ function Loading() {
     )
 }
 function Product(props) {
-    const { products } = props;
+    const { products, typeMoney } = props;
     return (
         <div className="grid__column-10">
             <Controls onSort={props.onSort} sortValue={props.sortValue} />
@@ -24,7 +24,7 @@ function Product(props) {
                     <Suspense fallback={<Loading />}>
                         {
                             products.map(product => {
-                                return <ProductItem product={product} key={product._id} />
+                                return <ProductItem typeMoney={typeMoney} product={product} key={product._id} />
                             })
                         }
                     </Suspense>

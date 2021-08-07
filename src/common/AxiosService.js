@@ -1,7 +1,7 @@
 import axios from "axios";
 class AxiosService {
     constructor() {
-        const intance = axios.create();
+        const intance = axios.create({ withCredentials: true });
         intance.interceptors.response.use(this.handleSuccess, this.handleError);
         this.intance = intance;
     }

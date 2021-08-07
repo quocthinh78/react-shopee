@@ -29,7 +29,7 @@ function Detail(props) {
     }, [location]);
 
     const productDeatail = useSelector((state) => state.product.productDetail);
-
+    const typeMoney = useSelector((state) => state.product.typeMoney)
     const breadCrumb = useSelector((state) => state.product.breadCrumb);
 
     return (
@@ -76,12 +76,12 @@ function Detail(props) {
                                 <div className="detail__padding">
                                     <div className="detail__price">
                                         <div className="detail__price-sale">
-                                            <span>đ</span> <span> {productDeatail.price ? currencyFormat(productDeatail.price, 1) : ""} </span>
+                                            <span>{typeMoney === "usd" ? "" : "đ"}</span> <span> {productDeatail.price ? currencyFormat(productDeatail.price, 1, typeMoney) : ""} </span>
                                         </div>
                                         <div className="detail__price-price">
-                                            <span>đ</span>
+                                            <span>{typeMoney === "usd" ? "" : "đ"}</span>
                                             <span>
-                                                {currencyFormat((productDeatail.price * (100 - productDeatail.discount)) / 100, 1)}
+                                                {currencyFormat((productDeatail.price * (100 - productDeatail.discount)) / 100, 1, typeMoney)}
                                             </span>
                                         </div>
                                         <div className="detail__price-percent"> {productDeatail.discount} % giảm </div>

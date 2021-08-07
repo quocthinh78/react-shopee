@@ -12,6 +12,17 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 isLogin: true
             }
+        case typesUser.GET_USER_SUCCESS:
+            return {
+                ...state,
+                userInfo: action.payload.data
+            }
+        case typesUser.LOGOUT_SUCCESS:
+            return {
+                ...state,
+                isLogin: false,
+                userInfo: {}
+            }
         default: return {
             ...state
         }

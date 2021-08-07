@@ -10,6 +10,7 @@ function HeaderSearch(props) {
                         props.search(e.target.value);
                         handleOpen(true)
                     }}
+                    onBlur={() => handleOpen(false)}
                     onChange={(e) => props.search(e.target.value)}
                     type="text"
                     className="header__search-input"

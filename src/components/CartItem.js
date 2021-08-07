@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { totalFormat, currencyFormat } from "./../common/currency"
 function CartItem(props) {
-    const { product } = props;
+    const { product, typeMoney } = props;
     const [quantity, setQuantity] = useState(product.quatity);
     return (
         <div className="cart__list-total">
@@ -18,8 +18,8 @@ function CartItem(props) {
                     </div>
                 </div>
                 <div className="cart__list-total-price col-2">
-                    <div className="cart__list-total-price--after">{currencyFormat(product.price * (100 - product.discount) / 100)}</div>
-                    <div className="cart__list-total-price--before">{currencyFormat(product.price)}</div>
+                    <div className="cart__list-total-price--after">{currencyFormat(product.price * (100 - product.discount) / 100, 0, typeMoney)}</div>
+                    <div className="cart__list-total-price--before">{currencyFormat(product.price, 0, typeMoney)}</div>
                 </div>
                 <div className="cart__list-total-quanti col-3">
                     <button

@@ -9,6 +9,7 @@ import Home from "./pages/Home";
 import Detail from "./pages/Detail";
 import Cart from "./pages/Cart";
 import Modal from "./components/Modal";
+import Report from "./pages/Report"
 import "./scss/base.scss";
 import "./scss/main.scss";
 import "./scss/detail.scss";
@@ -25,7 +26,7 @@ function App() {
         <Route exact path="/detail/:id" render={() => <Detail />} />
         <Route path="/:slug/:id" render={() => <Home />} />
         <Route path="/cart" render={() => <Cart />} />
-
+        <Route path="/report" render={() => <Report />} />
       </Switch>
     </Router>
   );

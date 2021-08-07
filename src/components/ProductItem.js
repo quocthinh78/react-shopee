@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { currencyFormat } from "./../common/currency";
 function ProductItem(props) {
-    const { product } = props;
+    const { product, typeMoney } = props;
     return (
         <div className="grid__column-2-4">
             <NavLink className="home-poduct-item" to={`/detail/${product._id}`}>
@@ -13,10 +13,10 @@ function ProductItem(props) {
                 <h4 className="home-product-item__name">{product.name}</h4>
                 <div className="home-product-item__price">
                     <span className="home-product-item__price-old">
-                        {currencyFormat(product.price)}
+                        {currencyFormat(product.price, 0, typeMoney)}
                     </span>
                     <span className="home-product-item__price-current">
-                        {currencyFormat((product.price * (100 - product.discount)) / 100)}
+                        {currencyFormat((product.price * (100 - product.discount)) / 100, 0, typeMoney)}
                     </span>
                 </div>
                 <div className="home-product-item__action">

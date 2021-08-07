@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { RiErrorWarningLine } from "react-icons/ri"
 import { currencyFormat } from '../common/currency';
 export default function CartCheckout(props) {
-    let { cartProduct } = props;
+    let { cartProduct, typeMoney } = props;
     const [total, setTotal] = useState(0);
     const [totalAll, setTotalAll] = useState(0);
     useEffect(() => {
@@ -54,18 +54,18 @@ export default function CartCheckout(props) {
                 <div className="cart__total-price-result-top">
                     <div className="cart__total-price-result-top-price">
                         <span>Tạm tính</span>
-                        <div>{currencyFormat(totalAll)}</div>
+                        <div>{currencyFormat(totalAll, 0, typeMoney)}</div>
                     </div>
                     <div className="cart__total-price-result-top-discount">
                         <span>Giảm giá</span>
-                        <div>{currencyFormat(totalAll - total)}</div>
+                        <div>{currencyFormat(totalAll - total, 0, typeMoney)}</div>
                     </div>
                 </div>
                 <div className="cart__total-price-result-bottom">
                     <span>Tổng cộng</span>
                     <div className="cart__total-price-result-bottom-price">
                         <div>
-                            {currencyFormat(total)}
+                            {currencyFormat(total, 0, typeMoney)}
                         </div>
                         <small>(Đã bao gồm VAT nếu có)</small>
                     </div>
