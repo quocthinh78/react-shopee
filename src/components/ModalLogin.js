@@ -1,11 +1,52 @@
-import React from "react";
+import React, { useState } from "react";
+import Validator from './../common/validator';
+import { useHistory } from "react-router-dom"
+import { rules } from "./../common/validator/rules"
+import { useSelector } from "react-redux"
 import { useDispatch } from "react-redux";
 import * as modalActions from "./../actions/modal"
+import * as userActions from "./../actions/user"
 function ModalLogin(props) {
     const dispatch = useDispatch();
+    const history = useHistory();
+    const isLogin = useSelector((state) => state.user.isLogin)
+    if (isLogin) {
+        history.push("/");
+    }
     const hideModal = () => {
         dispatch(modalActions.hideModal())
     }
+
+    const [formValue, setformValue] = useState({
+        email: "",
+        password: "",
+        errors: {}
+    })
+    const validator = new Validator(rules);
+    const handleChange = (e) => {
+        setformValue((formValue) => {
+            return {
+                ...formValue,
+                [e.target.name]: e.target.value
+            }
+        })
+        console.log(formValue)
+    }
+    const handleSubmit = (e) => {
+        setformValue((formValue) => {
+            return {
+                ...formValue,
+                errors: validator.validate(formValue)
+            }
+        })
+        if (!formValue.password || !formValue.email) return;
+
+        const { email, password } = formValue;
+        dispatch(userActions.login({ email, password }));
+
+
+    }
+    const { errors } = formValue;
     return (
         <div className="auth-form">
             <div className="auth-form__container">
@@ -19,14 +60,22 @@ function ModalLogin(props) {
                             type="text"
                             className="auth-form__input"
                             placeholder="Email của bạn"
+                            name="email"
+                            value={formValue.email || ""}
+                            onChange={handleChange}
                         />
+                        {errors.email && <div className="auth-form__validation" style={{ display: "block" }}>{errors.email}</div>}
                     </div>
                     <div className="auth-form__group">
                         <input
                             type="password"
                             className="auth-form__input"
                             placeholder="Mật khẩu của bạn"
+                            name="password"
+                            value={formValue.password || ""}
+                            onChange={handleChange}
                         />
+                        {errors.password && <div className="auth-form__validation" style={{ display: "block" }}>{errors.password}</div>}
                     </div>
                 </div>
                 <div className="auth-form__aside">
@@ -49,7 +98,7 @@ function ModalLogin(props) {
                     >
                         TRỞ LẠI
                     </button>
-                    <button className="btn btn-primary">ĐĂNG NHẬP</button>
+                    <button className="btn btn-primary" onClick={handleSubmit}>ĐĂNG NHẬP</button>
                 </div>
             </div>
             <div className="auth-form__socials">

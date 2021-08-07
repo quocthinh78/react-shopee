@@ -11,17 +11,17 @@ function Siderbar(props) {
                 </h3>
                 <ul className="category-list">
                     <NavLink to="/home" className="categorty-item" activeClassName="category-item--active">
-                        <a className="category-item__link">
+                        <div className="category-item__link">
                             Tất cả
-                        </a>
+                        </div>
                     </NavLink>
                     {
                         categoryList.map(cat => {
                             const slug = changslug(cat.name)
                             return (<NavLink to={`/${slug}/${cat._id}`} key={cat._id} className="categorty-item" activeClassName="category-item--active">
-                                <a className="category-item__link">
+                                <div className="category-item__link">
                                     {cat.name}
-                                </a>
+                                </div>
                             </NavLink>)
                         })
                     }

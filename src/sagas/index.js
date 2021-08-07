@@ -8,6 +8,9 @@ import * as actionsCart from "./../actions/cart";
 import * as actionModal from "./../actions/modal"
 import * as typesControls from "./../constant/controls"
 import * as actionsControls from "./../actions/controls"
+import * as userApis from "./../apis/User"
+import * as typesUser from "./../constant/user"
+import * as userActions from "./../actions/user"
 
 function* getProductAll({ payload }) {
     yield delay(400)
@@ -73,6 +76,28 @@ function* fetchCategory({ payload }) {
     const { data } = response;
     yield put(actionsProduct.fetchCategorySuccess(data));
 }
+
+function* register({ payload }) {
+    const { data } = payload;
+    yield call(userApis.register, data);
+}
+
+function* login({ payload }) {
+    const { data } = payload;
+    console.log(data)
+    const response = yield call(userApis.login, data);
+    const { status } = response;
+    if (status === 200) {
+        yield put(userActions.loginSuccess());
+    }
+}
+
+function* getUser() {
+    const response = yield call(userActions.getUser)
+    const { data } = response;
+    console.log(response)
+    yield put(userActions.getUserSuccess(data))
+}
 function* rootSaga() {
     // get product
     yield takeEvery(typesProduct.GET_PRODUCT, getProductAll);
@@ -91,7 +116,12 @@ function* rootSaga() {
     yield takeLatest(typesControls.SEARCH, searchKey)
 
     //category
-    yield takeLatest(typesProduct.FETCH_CATEGORY, fetchCategory)
+    yield takeLatest(typesProduct.FETCH_CATEGORY, fetchCategory);
+
+    // auth
+    yield takeLatest(typesUser.REGISTER, register);
+    yield takeLatest(typesUser.LOGIN, login);
+    yield takeLatest(typesUser.GET_USER, getUser)
 }
 
 export default rootSaga;
