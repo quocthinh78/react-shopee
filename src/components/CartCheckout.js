@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { IconName } from "react-icons/fc";
 import { RiErrorWarningLine } from "react-icons/ri"
 import { currencyFormat } from '../common/currency';
 export default function CartCheckout(props) {
@@ -48,6 +49,16 @@ export default function CartCheckout(props) {
                 <div className="cart__total-price-promotion-choose">
                     <img src="https://frontend.tikicdn.com/_desktop-next/static/img/mycoupon/coupon_icon.svg" alt="" />
                     <span>Chọn hoặc nhập khuyễn mãi</span>
+                </div>
+                FcCurrencyExchange
+                <div className="cart__total-price-promotion-choose">
+                    <  FcCurrencyExchange />
+                    <span>
+                        USD
+                    </span>
+                    <span>
+                        VND
+                    </span>
                 </div>
             </div>
             <div className="cart__total-price-result">
