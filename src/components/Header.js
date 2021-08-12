@@ -15,6 +15,7 @@ function Header(props) {
     const userInfo = useSelector((state) => state.user.userInfo)
     const [isOpenSearch, setIsOpenSearch] = useState(false)
     const dispatch = useDispatch();
+    
     const handleDeleteCart = (product) => {
         dispatch(cartActions.deleteCart(product))
     }

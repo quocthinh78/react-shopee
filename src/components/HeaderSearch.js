@@ -2,6 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 function HeaderSearch(props) {
     const { searchName, isOpenSearch, handleOpen } = props;
+
     return (
         <div className="header__search">
             <div className="header__search-input-wrap">
