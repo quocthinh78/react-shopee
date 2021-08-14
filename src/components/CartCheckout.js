@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { IconName ,FcCurrencyExchange } from "react-icons/fc";
 import { RiErrorWarningLine } from "react-icons/ri"
-import { FcCurrencyExchange } from "react-icons/fc"
 import { currencyFormat } from '../common/currency';
 export default function CartCheckout(props) {
     let { cartProduct, typeMoney } = props;
