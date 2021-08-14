@@ -1,1 +1,1 @@
-export const API_POINT = "http://localhost:3000";
+export const API_POINT = "https://node-react-shopee.herokuapp.com";
