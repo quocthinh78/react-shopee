@@ -11,7 +11,6 @@ import ModalDeleteProduct from "./../components/ModalDeleteProduct"
 function Cart(props) {
     const cartProduct = useSelector((state) => state.cart.cart);
     const typeMoney = useSelector((state) => state.product.typeMoney);
-    console.log(typeMoney)
     const dispatch = useDispatch();
 
     const onHandleUpdateCart = (product, quantity) => {

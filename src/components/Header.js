@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import * as cartActions from "./../actions/cart";
 import * as modalActions from "./../actions/modal";
 import * as controlActions from "./../actions/controls";
-import * as userActions from "./../actions/user"
+import * as userActions from "./../actions/user";
 import HeaderSearch from "./HeaderSearch";
 import HeaderCart from "./HeaderCart";
 import HeaderNotify from "./HeaderNotify";
@@ -39,6 +39,12 @@ function Header(props) {
     }
 
     const hanleLogout = () => {
+        const id = userInfo._id
+        const cartInDataBase = {
+            id, 
+            cart : productsIncart
+        }
+        dispatch(userActions.saveCart(cartInDataBase))
         dispatch(userActions.logout())
     }
     return (

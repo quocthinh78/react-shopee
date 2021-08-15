@@ -49,3 +49,13 @@ export const logoutSucces = (data) => {
         type: userTypes.LOGOUT_SUCCESS,
     }
 }
+
+export const saveCart = (data) => {
+    console.log(data)
+    return {
+        type : userTypes.ADD_CART_IN_DATABASE,
+        payload : {
+            data
+        }
+    }
+}

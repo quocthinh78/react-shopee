@@ -9,6 +9,7 @@ import * as actionModal from "./../actions/modal"
 import * as typesControls from "./../constant/controls"
 import * as actionsControls from "./../actions/controls"
 import * as userApis from "./../apis/User"
+import * as orderApis from "./../apis/order"
 import * as typesUser from "./../constant/user"
 import * as userActions from "./../actions/user"
 
@@ -101,6 +102,12 @@ function* logout() {
     yield call(userApis.logout);
     yield put(userActions.logoutSucces())
 }
+
+function * addCartInDatabase({payload}) {
+    const datas = payload.data
+    const response = yield call(orderApis.addCartInDatabase ,datas);
+    console.log(response)
+}
 function* rootSaga() {
     // get product
     yield takeEvery(typesProduct.GET_PRODUCT, getProductAll);
@@ -126,6 +133,7 @@ function* rootSaga() {
     yield takeLatest(typesUser.LOGIN, login);
     yield takeLatest(typesUser.GET_USER, getUser)
     yield takeLatest(typesUser.LOGOUT, logout)
+    yield takeLatest(typesUser.ADD_CART_IN_DATABASE , addCartInDatabase)
 }
 
 export default rootSaga;

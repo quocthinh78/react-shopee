@@ -14,7 +14,6 @@ const reducer = (state = initialState, action) => {
                 isLogin: true
             }
         case typesUser.GET_USER_SUCCESS:
-            console.log(action.payload.data)
             return {
                 ...state,
                 userInfo: action.payload.data
