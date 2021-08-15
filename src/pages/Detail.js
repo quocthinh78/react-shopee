@@ -24,8 +24,15 @@ function Detail(props) {
     const idProduct = location.pathname.split("/").reverse()[0];
 
     useEffect(() => {
-        dispatch(productActions.fetchDetailProduct(idProduct));
-        dispatch(productActions.fetchBreadcrumb(idProduct));
+        (
+            () => {
+                dispatch(productActions.fetchDetailProduct(idProduct));
+                dispatch(productActions.fetchBreadcrumb(idProduct));
+            }
+        )()
+        return () => {
+            
+        }
     }, [location]);
 
     const productDeatail = useSelector((state) => state.product.productDetail);

@@ -19,7 +19,9 @@ export default function CartCheckout(props) {
                 setTotalAll(totalAlls)
             }
         )()
-
+        return () => {
+            
+        }
     })
     return (
         <div className="cart__total-price">

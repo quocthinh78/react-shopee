@@ -105,8 +105,11 @@ function* logout() {
 
 function * addCartInDatabase({payload}) {
     const datas = payload.data
+    console.log(1)
     const response = yield call(orderApis.addCartInDatabase ,datas);
+    console.log(response)
     const {status} = response;
+    console.log(status)
     if(status === 200){
         yield put(userActions.addCartDataSuccess())
     }

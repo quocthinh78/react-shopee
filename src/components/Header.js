@@ -26,6 +26,9 @@ function Header(props) {
             }
            }
        )()
+       return () => {
+            
+    }
     }, [])
 
     const handleDeleteCart = (product) => {
