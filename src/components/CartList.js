@@ -4,7 +4,7 @@ import { RiDeleteBin6Line } from "react-icons/ri"
 import CartItem from "./../components/CartItem"
 import CartCheckout from './CartCheckout'
 function CartList(props) {
-    const { cartProduct, typeMoney } = props;
+    const { cartProduct, typeMoney, changeMoney} = props;
     return (
         <div className="grid cart-wrap">
             <div className="grid__row cart">
@@ -40,7 +40,7 @@ function CartList(props) {
                         })}
                     </div>
                     <div className="grid__column-3">
-                        <CartCheckout typeMoney={typeMoney} cartProduct={cartProduct} />
+                        <CartCheckout changeMoney={changeMoney} typeMoney={typeMoney} cartProduct={cartProduct} />
                     </div>
                 </> : <>
                     <div className="cart__list-nocart">

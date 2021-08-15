@@ -2,6 +2,7 @@ import React from 'react'
 import { useSelector, useDispatch } from 'react-redux';
 import * as actionsCart from "./../actions/cart"
 import * as actionsModal from "./../actions/modal"
+import * as actionsProduct from "./../actions/product"
 import Header from "./../components/Header";
 import Footer from "./../components/Footer";
 import CartList from "./../components/CartList"
@@ -23,12 +24,16 @@ function Cart(props) {
         dispatch(actionsModal.showModal());
         dispatch(actionsModal.changeModalContent(<ModalDeleteProduct product={product} />))
     }
+    
+    const changeMoney = (types) => {
+       dispatch(actionsProduct.changeMoney(types))
+    }
 
     return (
         <div className="app">
             <Header />
             <div className="app__container">
-                <CartList typeMoney={typeMoney} deleteProductInCart={deleteProductInCart} onHandleUpdateCart={onHandleUpdateCart} cartProduct={cartProduct} />
+                <CartList changeMoney={changeMoney} typeMoney={typeMoney} deleteProductInCart={deleteProductInCart} onHandleUpdateCart={onHandleUpdateCart} cartProduct={cartProduct} />
             </div>
             <Footer />
         </div>

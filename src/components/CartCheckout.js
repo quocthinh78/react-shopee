@@ -3,7 +3,7 @@ import { IconName ,FcCurrencyExchange } from "react-icons/fc";
 import { RiErrorWarningLine } from "react-icons/ri"
 import { currencyFormat } from '../common/currency';
 export default function CartCheckout(props) {
-    let { cartProduct, typeMoney } = props;
+    let { cartProduct, typeMoney, changeMoney } = props;
     const [total, setTotal] = useState(0);
     const [totalAll, setTotalAll] = useState(0);
     useEffect(() => {
@@ -50,13 +50,12 @@ export default function CartCheckout(props) {
                     <img src="https://frontend.tikicdn.com/_desktop-next/static/img/mycoupon/coupon_icon.svg" alt="" />
                     <span>Chọn hoặc nhập khuyễn mãi</span>
                 </div>
-                FcCurrencyExchange
                 <div className="cart__total-price-promotion-choose">
                     <  FcCurrencyExchange />
-                    <span>
+                    <span onClick={() => changeMoney("usd")}>
                         USD
                     </span>
-                    <span>
+                    <span onClick={()=> changeMoney("vnd")}>
                         VND
                     </span>
                 </div>
