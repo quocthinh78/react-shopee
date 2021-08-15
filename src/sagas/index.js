@@ -106,7 +106,10 @@ function* logout() {
 function * addCartInDatabase({payload}) {
     const datas = payload.data
     const response = yield call(orderApis.addCartInDatabase ,datas);
-    console.log(response)
+    const {status} = response;
+    if(status === 200){
+        yield put(userActions.addCartDataSuccess())
+    }
 }
 function* rootSaga() {
     // get product

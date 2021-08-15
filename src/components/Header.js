@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState , useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import {useHistory } from "react-router-dom"
 import * as cartActions from "./../actions/cart";
 import * as modalActions from "./../actions/modal";
 import * as controlActions from "./../actions/controls";
@@ -15,7 +16,18 @@ function Header(props) {
     const userInfo = useSelector((state) => state.user.userInfo)
     const [isOpenSearch, setIsOpenSearch] = useState(false)
     const dispatch = useDispatch();
-    
+    const history = useHistory();
+    const isLogin = useSelector(state => state.user.isLogin)
+    useEffect(() => {
+       (
+           () => {
+            if (isLogin) {
+                dispatch(userActions.getUser())
+            }
+           }
+       )()
+    }, [])
+
     const handleDeleteCart = (product) => {
         dispatch(cartActions.deleteCart(product))
     }
@@ -46,6 +58,7 @@ function Header(props) {
         }
         dispatch(userActions.saveCart(cartInDataBase))
         dispatch(userActions.logout())
+        history.push("/")
     }
     return (
         <header className="header">

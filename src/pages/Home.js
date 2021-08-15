@@ -3,7 +3,6 @@ import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom"
 import * as productActions from "./../actions/product";
 import * as controlActions from "./../actions/controls";
-import * as userActions from "./../actions/user"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Siderbar from "../components/Siderbar";
 import Header from "./../components/Header";
@@ -14,7 +13,6 @@ function Home(props) {
     const { id } = useParams();
     const idRef = useRef(null);
     let products = useSelector((state) => state.product.products);
-    const isLogin = useSelector(state => state.user.isLogin)
     const typeMoney = useSelector((state) => state.product.typeMoney)
 
     const sortValue = useSelector(state => state.controls.sortValue)
@@ -26,9 +24,7 @@ function Home(props) {
     const [pages, setPage] = useState(pagination)
     useEffect(() => {
         const loading = () => {
-            if (isLogin) {
-                dispatch(userActions.getUser())
-            }
+           
             if (id === idRef.current) {
                 dispatch(productActions.fetchProduct({ ...pages, cat: id }));
             } else {

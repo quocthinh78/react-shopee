@@ -51,11 +51,16 @@ export const logoutSucces = (data) => {
 }
 
 export const saveCart = (data) => {
-    console.log(data)
     return {
         type : userTypes.ADD_CART_IN_DATABASE,
         payload : {
             data
         }
+    }
+}
+
+export const addCartDataSuccess = () => {
+    return {
+        type : userTypes.ADD_CART_IN_DATABASE_SUCCESS
     }
 }

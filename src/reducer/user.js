@@ -24,7 +24,8 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 isLogin: false,
                 userInfo: {}
-            }
+            } 
+
         default: return {
             ...state
         }

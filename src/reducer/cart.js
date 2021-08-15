@@ -56,6 +56,12 @@ const cartReducer = (state = initialState, action) => {
                 ...state,
                 cart: [...state.cart]
             }
+        case typesCart.ADD_CART_IN_DATABASE_SUCCESS : 
+        localStorage.removeItem("cart")
+            return {
+                ...state,
+                cart : []
+            }
         default:
             return { ...state };
     }

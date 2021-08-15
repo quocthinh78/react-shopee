@@ -19,3 +19,4 @@ export const LOADING_QUERY = "LOADING_QUERY";
 export const SORT_DEFAULT = "SORT_DEFAULT"
 
 export const CHANGE_MONEY = "CHANGE_MONEY";
+
