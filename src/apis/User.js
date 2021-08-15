@@ -8,7 +8,6 @@ export const register = (data = {}) => {
         name: data.username, email: data.email, password: data.password,
     };
     return AxiosService.post(`${API_POINT}/${url}/register`, datas, {
-        credentials: "include",
         headers: {
             'Accesçs-Control-Allow-Origin': '*', 'Content-Type': 'application/json'
         }
